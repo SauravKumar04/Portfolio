@@ -1,68 +1,70 @@
-<!-- Header with typing animation -->
-<h1 align="center">Hey 👋, I'm Saurav Kumar</h1>
-<h3 align="center">An Electrical Engineering Student | DSA & Web Dev Enthusiast ⚡</h3>
+<h1 align="center">🌐 Saurav Kumar's Developer Portfolio</h1>
+<h3 align="center">Built with React | Tailwind CSS | Framer Motion | Deployed on Vercel</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&center=true&vCenter=true&width=435&lines=3rd+Year+at+NIT+Jamshedpur;Web+Developer+%F0%9F%92%BB;DSA+Lover+%F0%9F%92%96;Always+Learning+New+Tech+%F0%9F%93%9A" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&center=true&vCenter=true&width=460&lines=Clean+%26+Responsive+Portfolio;Showcasing+My+Tech+Journey;Built+for+Developers+%26+Recruiters" alt="Typing Animation" />
 </p>
 
 ---
 
-### 👨‍🎓 About Me
+## 🧑‍💼 About This Project
 
-- 🎓 I’m a **3rd year Electrical Engineering** student at **NIT Jamshedpur**.
-- 💻 Passionate about **Data Structures & Algorithms** and **Web Development**.
-- 🌱 Currently exploring **MERN stack**, **Next.js**, and competitive programming.
-- 📚 I enjoy solving real-world problems and building interactive projects.
-- 💬 Ask me about **React**, **Node.js**, or anything web-related.
-- ✨ Actively working on improving my GitHub presence and open source journey.
+This is my **personal developer portfolio** — a single-page, elegant, responsive website to showcase my skills, experience, and projects.
+
+> Designed to reflect **who I am** as a developer: technically sound, visually clean, and user-focused.
 
 ---
 
-### 🔧 Languages & Tools
+## 📍 Live Demo
 
-<p align="left">
-  <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white"/>
-  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/>
-</p>
+🌐 [**Visit Portfolio Website**](https://portfolio-h6y5.vercel.app/)  
+*(Feel free to explore it on desktop and mobile!)*
 
 ---
 
-### 📈 GitHub Stats
+## 🔧 Tech Stack Used
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SauravKumar04&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats"/>
-  <br />
-  <img src="https://streak-stats.demolab.com?user=SauravKumar04&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
-  <br />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SauravKumar04&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages"/>
-</p>
+| Category        | Tools / Libraries                                      |
+|----------------|---------------------------------------------------------|
+| 🧠 Framework    | [React.js](https://reactjs.org)                         |
+| 🎨 Styling      | [Tailwind CSS](https://tailwindcss.com)                |
+| 🎞 Animation    | [Framer Motion](https://www.framer.com/motion/)        |
+| 🧰 Components   | React Hooks, Responsive Grid, SVGs, Dark Mode          |
+| 🚀 Deployment   | [Vercel](https://vercel.com)                            |
 
 ---
 
-### 🌐 Connect with Me
+## 💡 Features
+
+- ✅ Responsive Design (Mobile First)
+- ✅ Smooth Page Transitions with Framer Motion
+- ✅ Animated Hero Section with Professional Intro
+- ✅ Project Showcase with GitHub Links
+- ✅ Skills, Tech Stack, Contact Section
+- ✅ Optimized for SEO & Performance
+
+---
+
+## 🧑‍🎓 About Me
+
+- 🎓 Electrical Engineering Student at **NIT Jamshedpur**
+- 💻 Passionate about **Web Development** and **DSA**
+- 💼 Actively building projects using **MERN stack**
+- 📫 Contact: **2023ugee038@nitjsr.ac.in**
+
+---
+
+## 🔗 Connect with Me
 
 <p>
-  <a href="https://www.linkedin.com/in/saurav-kumar-32b61128a/" target="_blank">
-    <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  <a href="mailto:2023ugee038@nitjsr.ac.in">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
-  <a href="mailto:sauravkumar.dev04@gmail.com">
-    <img src="https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+  <a href="https://www.linkedin.com/in/saurav-kumar-32b61128a/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
   <a href="https://github.com/SauravKumar04" target="_blank">
-    <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+    <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
-
----
-
-
-> *Thanks for visiting my profile! Give a ⭐ to support my work!* 🙏
 
