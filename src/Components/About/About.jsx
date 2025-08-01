@@ -24,7 +24,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import "./About.css";
 import theme_pattern from "../../assets/theme_pattern.svg";
-import profile from "../../assets/profile.jpeg";
 
 const About = () => {
   const ref = useRef(null);
@@ -51,7 +50,7 @@ const About = () => {
       color: "#4CAF50",
     },
     {
-      number: "10+",
+      number: "15+",
       title: "PROJECTS COMPLETED", 
       subtitle: "Full-stack web applications",
       icon: <CodeIcon />,
@@ -196,58 +195,9 @@ const About = () => {
           </motion.div>
 
           <Grid container spacing={6}>
-            {/* Left Column - Profile & Description */}
-            <Grid item xs={12} lg={6}>
-              <Stack spacing={4}>
-                {/* Profile Image */}
-                <motion.div variants={cardVariants}>
-                  <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
-                    <motion.div
-                      whileHover={{ scale: 1.05, rotate: 2 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <Box
-                        sx={{
-                          width: { xs: 220, md: 280 },
-                          height: { xs: 220, md: 280 },
-                          borderRadius: "30px",
-                          background: "linear-gradient(135deg, #DF8909, #B415FF)",
-                          padding: "4px",
-                          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
-                          position: 'relative',
-                          '&::before': {
-                            content: '""',
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            borderRadius: "30px",
-                            background: "linear-gradient(45deg, #DF8909, #B415FF)",
-                            opacity: 0.7,
-                            filter: 'blur(20px)',
-                            zIndex: -1,
-                          }
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={profile}
-                          alt="Saurav Kumar"
-                          sx={{
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: "26px",
-                            objectFit: "cover",
-                            objectPosition: "center top",
-                            display: "block",
-                          }}
-                        />
-                      </Box>
-                    </motion.div>
-                  </Box>
-                </motion.div>
-
+            {/* Full Width Content */}
+            <Grid item xs={12}>
+              <Stack spacing={6}>
                 {/* About Description Card */}
                 <motion.div variants={cardVariants}>
                   <Card
@@ -274,7 +224,7 @@ const About = () => {
                       }}
                     />
                     <CardContent sx={{ p: 0 }}>
-                      <Stack spacing={3}>
+                      <Stack spacing={4}>
                         <Typography
                           variant="h4"
                           sx={{
@@ -283,7 +233,8 @@ const About = () => {
                             mb: 2,
                             display: 'flex',
                             alignItems: 'center',
-                            gap: 2
+                            gap: 2,
+                            justifyContent: 'center'
                           }}
                         >
                           <SchoolIcon sx={{ color: '#B415FF' }} />
@@ -293,9 +244,12 @@ const About = () => {
                         <Typography
                           variant="body1"
                           sx={{
-                            fontSize: "1.2rem",
+                            fontSize: "1.3rem",
                             lineHeight: 1.8,
                             color: "rgba(255, 255, 255, 0.9)",
+                            textAlign: 'center',
+                            maxWidth: '800px',
+                            mx: 'auto'
                           }}
                         >
                           I am currently pursuing my Bachelor's degree in{" "}
@@ -305,14 +259,17 @@ const About = () => {
                           at NIT Jamshedpur, where I've maintained an excellent academic record with a CGPA of 8.37.
                         </Typography>
                         
-                        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.1)' }} />
+                        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.1)', maxWidth: '300px', mx: 'auto' }} />
                         
                         <Typography
                           variant="body1"
                           sx={{
-                            fontSize: "1.2rem",
+                            fontSize: "1.3rem",
                             lineHeight: 1.8,
                             color: "rgba(255, 255, 255, 0.9)",
+                            textAlign: 'center',
+                            maxWidth: '800px',
+                            mx: 'auto'
                           }}
                         >
                           Beyond my core engineering studies, I have developed a strong passion for{" "}
@@ -329,9 +286,12 @@ const About = () => {
                         <Typography
                           variant="body1"
                           sx={{
-                            fontSize: "1.2rem",
+                            fontSize: "1.3rem",
                             lineHeight: 1.8,
                             color: "rgba(255, 255, 255, 0.9)",
+                            textAlign: 'center',
+                            maxWidth: '800px',
+                            mx: 'auto'
                           }}
                         >
                           I'm always eager to learn new technologies, take on challenging projects, and collaborate with fellow developers to create impactful solutions.
@@ -340,32 +300,28 @@ const About = () => {
                     </CardContent>
                   </Card>
                 </motion.div>
-              </Stack>
-            </Grid>
 
-            {/* Right Column - Skills & Achievements */}
-            <Grid item xs={12} lg={6}>
-              <Stack spacing={4}>
-                {/* Achievements Cards */}
+                {/* Achievements Grid */}
                 <motion.div variants={cardVariants}>
                   <Typography
                     variant="h4"
                     sx={{
                       fontWeight: 700,
                       color: "white",
-                      mb: 3,
+                      mb: 4,
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 2
+                      gap: 2,
+                      justifyContent: 'center'
                     }}
                   >
                     <AchievementIcon sx={{ color: '#DF8909' }} />
                     Achievements
                   </Typography>
                   
-                  <Grid container spacing={3}>
+                  <Grid container spacing={4}>
                     {achievements.map((achievement, index) => (
-                      <Grid item xs={12} sm={6} lg={12} xl={6} key={index}>
+                      <Grid item xs={12} sm={4} key={index}>
                         <motion.div
                           variants={cardVariants}
                           transition={{ delay: index * 0.1 }}
@@ -374,7 +330,7 @@ const About = () => {
                           <Card
                             className="glass-effect"
                             sx={{
-                              p: 3,
+                              p: 4,
                               borderRadius: "20px",
                               background: `linear-gradient(135deg, ${achievement.color}10, rgba(30, 30, 30, 0.98))`,
                               border: `1px solid ${achievement.color}30`,
@@ -396,26 +352,26 @@ const About = () => {
                                 justifyContent: 'center'
                               }}
                             >
-                              {React.cloneElement(achievement.icon, { sx: { fontSize: '2.5rem' } })}
+                              {React.cloneElement(achievement.icon, { sx: { fontSize: '3rem' } })}
                             </Box>
                             <Typography
                               variant="h3"
                               sx={{
                                 fontWeight: 800,
                                 color: achievement.color,
-                                mb: 1,
-                                fontSize: { xs: '2rem', md: '2.5rem' }
+                                mb: 2,
+                                fontSize: { xs: '2.5rem', md: '3rem' }
                               }}
                             >
                               {achievement.number}
                             </Typography>
                             <Typography
-                              variant="body1"
+                              variant="h6"
                               sx={{
                                 fontWeight: 600,
                                 color: "white",
                                 mb: 1,
-                                fontSize: '0.9rem'
+                                fontSize: '1rem'
                               }}
                             >
                               {achievement.title}
@@ -424,7 +380,7 @@ const About = () => {
                               variant="body2"
                               sx={{
                                 color: "rgba(255, 255, 255, 0.7)",
-                                fontSize: '0.8rem'
+                                fontSize: '0.9rem'
                               }}
                             >
                               {achievement.subtitle}
@@ -458,123 +414,125 @@ const About = () => {
                           display: "flex",
                           alignItems: "center",
                           gap: 2,
+                          justifyContent: 'center'
                         }}
                       >
                         <CodeIcon sx={{ color: '#B415FF' }} />
                         Technical Skills
                       </Typography>
 
-                      <Stack spacing={3}>
+                      <Grid container spacing={3}>
                         {skills.map((skill, index) => (
-                          <motion.div
-                            key={skill.name}
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={
-                              isInView
-                                ? { opacity: 1, x: 0 }
-                                : { opacity: 0, x: -30 }
-                            }
-                            transition={{ delay: index * 0.1 + 0.5 }}
-                          >
-                            <Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                  alignItems: "center",
-                                  mb: 1.5,
-                                }}
-                              >
+                          <Grid item xs={12} sm={6} lg={4} xl={3} key={skill.name}>
+                            <motion.div
+                              initial={{ opacity: 0, y: 30 }}
+                              animate={
+                                isInView
+                                  ? { opacity: 1, y: 0 }
+                                  : { opacity: 0, y: 30 }
+                              }
+                              transition={{ delay: index * 0.1 + 0.5 }}
+                            >
+                              <Box>
                                 <Box
                                   sx={{
                                     display: "flex",
+                                    justifyContent: "space-between",
                                     alignItems: "center",
-                                    gap: 2,
+                                    mb: 1.5,
                                   }}
                                 >
                                   <Box
                                     sx={{
-                                      color: skill.color,
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'center',
-                                      width: 35,
-                                      height: 35,
-                                      borderRadius: '10px',
-                                      background: `${skill.color}20`,
-                                      border: `1px solid ${skill.color}30`
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: 2,
                                     }}
                                   >
-                                    {React.cloneElement(skill.icon, { sx: { fontSize: '1.3rem' } })}
-                                  </Box>
-                                  <Box>
-                                    <Typography
-                                      variant="body1"
-                                      sx={{ fontWeight: 600, color: 'white' }}
+                                    <Box
+                                      sx={{
+                                        color: skill.color,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: 35,
+                                        height: 35,
+                                        borderRadius: '10px',
+                                        background: `${skill.color}20`,
+                                        border: `1px solid ${skill.color}30`
+                                      }}
                                     >
-                                      {skill.name}
-                                    </Typography>
-                                    <Typography
-                                      variant="body2"
-                                      sx={{ color: "rgba(255, 255, 255, 0.6)", fontSize: '0.8rem' }}
-                                    >
-                                      {skill.category}
-                                    </Typography>
+                                      {React.cloneElement(skill.icon, { sx: { fontSize: '1.3rem' } })}
+                                    </Box>
+                                    <Box>
+                                      <Typography
+                                        variant="body1"
+                                        sx={{ fontWeight: 600, color: 'white', fontSize: '0.9rem' }}
+                                      >
+                                        {skill.name}
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{ color: "rgba(255, 255, 255, 0.6)", fontSize: '0.75rem' }}
+                                      >
+                                        {skill.category}
+                                      </Typography>
+                                    </Box>
                                   </Box>
+                                  <Typography
+                                    variant="body1"
+                                    sx={{ 
+                                      color: skill.color,
+                                      fontWeight: 700,
+                                      fontSize: '1rem'
+                                    }}
+                                  >
+                                    {skill.level}%
+                                  </Typography>
                                 </Box>
-                                <Typography
-                                  variant="body1"
-                                  sx={{ 
-                                    color: skill.color,
-                                    fontWeight: 700,
-                                    fontSize: '1.1rem'
-                                  }}
-                                >
-                                  {skill.level}%
-                                </Typography>
-                              </Box>
 
-                              <Box sx={{ position: "relative" }}>
-                                <LinearProgress
-                                  variant="determinate"
-                                  value={100}
-                                  sx={{
-                                    height: 8,
-                                    borderRadius: 4,
-                                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                                    "& .MuiLinearProgress-bar": {
+                                <Box sx={{ position: "relative" }}>
+                                  <LinearProgress
+                                    variant="determinate"
+                                    value={100}
+                                    sx={{
+                                      height: 8,
                                       borderRadius: 4,
                                       backgroundColor: "rgba(255, 255, 255, 0.1)",
-                                    },
-                                  }}
-                                />
-                                <motion.div
-                                  style={{
-                                    position: "absolute",
-                                    top: 0,
-                                    left: 0,
-                                    height: "100%",
-                                    borderRadius: 4,
-                                    background: `linear-gradient(135deg, ${skill.color}, ${skill.color}cc)`,
-                                    boxShadow: `0 0 15px ${skill.color}40`,
-                                  }}
-                                  initial={{ width: 0 }}
-                                  animate={
-                                    isInView
-                                      ? { width: `${skill.level}%` }
-                                      : { width: 0 }
-                                  }
-                                  transition={{
-                                    duration: 1.5,
-                                    delay: index * 0.1 + 0.8,
-                                    ease: "easeOut"
-                                  }}
-                                />
+                                      "& .MuiLinearProgress-bar": {
+                                        borderRadius: 4,
+                                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                      },
+                                    }}
+                                  />
+                                  <motion.div
+                                    style={{
+                                      position: "absolute",
+                                      top: 0,
+                                      left: 0,
+                                      height: "100%",
+                                      borderRadius: 4,
+                                      background: `linear-gradient(135deg, ${skill.color}, ${skill.color}cc)`,
+                                      boxShadow: `0 0 15px ${skill.color}40`,
+                                    }}
+                                    initial={{ width: 0 }}
+                                    animate={
+                                      isInView
+                                        ? { width: `${skill.level}%` }
+                                        : { width: 0 }
+                                    }
+                                    transition={{
+                                      duration: 1.5,
+                                      delay: index * 0.1 + 0.8,
+                                      ease: "easeOut"
+                                    }}
+                                  />
+                                </Box>
                               </Box>
-                            </Box>
-                          </motion.div>
+                            </motion.div>
+                          </Grid>
                         ))}
-                      </Stack>
+                      </Grid>
                     </CardContent>
                   </Card>
                 </motion.div>

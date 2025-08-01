@@ -15,6 +15,9 @@ import {
   Tooltip,
   Badge,
   useTheme,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@mui/material'
 import { 
   GitHub as GitHubIcon,
@@ -25,6 +28,8 @@ import {
   Star as StarIcon,
   TrendingUp as TrendingIcon,
   WorkspacePremium as FeaturedIcon,
+  ExpandMore as ExpandMoreIcon,
+  Build as BuildIcon,
 } from '@mui/icons-material'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
@@ -37,57 +42,13 @@ const MyWork = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const theme = useTheme()
 
-  // Enhanced project data with comprehensive information
-  const enhancedProjects = mywork_data.map((project, index) => {
-    const techStacks = [
-      ['React', 'Node.js', 'MongoDB', 'Express'],
-      ['JavaScript', 'HTML5', 'CSS3', 'Responsive'],
-      ['React', 'REST API', 'Material-UI'],
-      ['MERN Stack', 'Redux', 'JWT', 'Stripe'],
-      ['React', 'Firebase', 'Material-UI', 'PWA'],
-      ['Node.js', 'MongoDB', 'Socket.io', 'Real-time']
-    ]
-    
-    const categories = [
-      'Full Stack Web App',
-      'Frontend Development',
-      'React Application',
-      'E-commerce Platform',
-      'Progressive Web App',
-      'Real-time Application'
-    ]
-
-    const statuses = [
-      'Completed',
-      'In Development', 
-      'Completed',
-      'Featured',
-      'Completed',
-      'Prototype'
-    ]
-
-    const difficulties = [
-      'Advanced',
-      'Intermediate',
-      'Intermediate',
-      'Expert',
-      'Advanced',
-      'Intermediate'
-    ]
-
-    return {
-      ...project,
-      technologies: techStacks[index] || ['React', 'JavaScript'],
-      category: categories[index] || 'Web Development',
-      status: statuses[index] || 'Completed',
-      difficulty: difficulties[index] || 'Intermediate',
-      featured: index < 3, // Mark first 3 as featured
-      github: `https://github.com/SauravKumar04/project-${index + 1}`,
-      live: index % 2 === 0 ? `https://project-${index + 1}.vercel.app` : null,
-      stars: Math.floor(Math.random() * 50) + 10,
-      views: Math.floor(Math.random() * 500) + 100
-    }
-  })
+  // Use the imported project data directly
+  const enhancedProjects = mywork_data.map((project, index) => ({
+    ...project,
+    stars: Math.floor(Math.random() * 50) + 10,
+    views: Math.floor(Math.random() * 500) + 100,
+    featured: index < 3, // Mark first 3 as featured
+  }))
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -249,7 +210,7 @@ const MyWork = () => {
                   fontSize: { xs: '1.1rem', md: '1.3rem' }
                 }}
               >
-                A curated selection of my most impactful projects showcasing modern web development practices
+                A showcase of my most impactful projects demonstrating modern web development excellence
               </Typography>
             </Box>
           </motion.div>
@@ -322,7 +283,7 @@ const MyWork = () => {
           {/* Projects Grid */}
           <Grid container spacing={4}>
             {enhancedProjects.map((project, index) => (
-              <Grid item xs={12} sm={6} lg={4} key={index}>
+              <Grid item xs={12} sm={6} lg={4} key={project.w_no}>
                 <motion.div
                   variants={cardVariants}
                   custom={index}
@@ -496,7 +457,7 @@ const MyWork = () => {
                           </Tooltip>
                         )}
                         
-                        {project.live && (
+                        {project.live && project.live !== "#" && (
                           <Tooltip title="View Live Demo">
                             <IconButton
                               component="a"
@@ -529,7 +490,7 @@ const MyWork = () => {
                         {/* Category & Status */}
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                           <Chip
-                            label={project.category}
+                            label={project.category || 'Web Application'}
                             size="small"
                             sx={{
                               background: 'rgba(180, 21, 255, 0.15)',
@@ -540,12 +501,12 @@ const MyWork = () => {
                             }}
                           />
                           <Chip
-                            label={project.status}
+                            label={project.status || 'Completed'}
                             size="small"
                             sx={{
-                              background: getStatusColor(project.status).bg,
-                              color: getStatusColor(project.status).color,
-                              border: `1px solid ${getStatusColor(project.status).color}30`,
+                              background: getStatusColor(project.status || 'Completed').bg,
+                              color: getStatusColor(project.status || 'Completed').color,
+                              border: `1px solid ${getStatusColor(project.status || 'Completed').color}30`,
                               fontWeight: 600,
                               fontSize: '0.75rem'
                             }}
@@ -578,25 +539,27 @@ const MyWork = () => {
                             minHeight: '72px'
                           }}
                         >
-                          {project.description || 'A comprehensive web application built with modern technologies and best practices.'}
+                          {project.description}
                         </Typography>
 
                         {/* Difficulty Level */}
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                          <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.6)' }}>
-                            Difficulty:
-                          </Typography>
-                          <Chip
-                            label={project.difficulty}
-                            size="small"
-                            sx={{
-                              background: `${getDifficultyColor(project.difficulty)}15`,
-                              color: getDifficultyColor(project.difficulty),
-                              border: `1px solid ${getDifficultyColor(project.difficulty)}30`,
-                              fontSize: '0.7rem'
-                            }}
-                          />
-                        </Box>
+                        {project.difficulty && (
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+                              Difficulty:
+                            </Typography>
+                            <Chip
+                              label={project.difficulty}
+                              size="small"
+                              sx={{
+                                background: `${getDifficultyColor(project.difficulty)}15`,
+                                color: getDifficultyColor(project.difficulty),
+                                border: `1px solid ${getDifficultyColor(project.difficulty)}30`,
+                                fontSize: '0.7rem'
+                              }}
+                            />
+                          </Box>
+                        )}
 
                         {/* Technologies */}
                         <Box>
@@ -604,7 +567,7 @@ const MyWork = () => {
                             Technologies:
                           </Typography>
                           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                            {project.technologies.map((tech, techIndex) => (
+                            {project.technologies && project.technologies.slice(0, 4).map((tech, techIndex) => (
                               <Chip
                                 key={techIndex}
                                 label={tech}
@@ -623,8 +586,65 @@ const MyWork = () => {
                                 }}
                               />
                             ))}
+                            {project.technologies && project.technologies.length > 4 && (
+                              <Chip
+                                label={`+${project.technologies.length - 4}`}
+                                size="small"
+                                sx={{
+                                  background: 'rgba(180, 21, 255, 0.2)',
+                                  color: '#B415FF',
+                                  border: '1px solid rgba(180, 21, 255, 0.3)',
+                                  fontSize: '0.7rem',
+                                  height: '24px'
+                                }}
+                              />
+                            )}
                           </Box>
                         </Box>
+
+                        {/* Technical Details Accordion for Featured Projects */}
+                        {(project.features || project.backend_tech || project.frontend_tech) && (
+                          <Accordion
+                            sx={{
+                              background: 'rgba(255, 255, 255, 0.05)',
+                              borderRadius: '12px',
+                              '&:before': { display: 'none' }
+                            }}
+                          >
+                            <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}>
+                              <Typography variant="body2" sx={{ color: 'white', fontWeight: 600 }}>
+                                <BuildIcon sx={{ mr: 1, fontSize: '1rem' }} />
+                                Technical Details
+                              </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              <Stack spacing={2}>
+                                {project.features && (
+                                  <Box>
+                                    <Typography variant="body2" sx={{ color: '#DF8909', fontWeight: 600, mb: 1 }}>
+                                      Key Features:
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                      {project.features.slice(0, 4).map((feature, idx) => (
+                                        <Chip
+                                          key={idx}
+                                          label={feature}
+                                          size="small"
+                                          sx={{
+                                            fontSize: '0.65rem',
+                                            height: '20px',
+                                            background: 'rgba(223, 137, 9, 0.1)',
+                                            color: '#DF8909'
+                                          }}
+                                        />
+                                      ))}
+                                    </Box>
+                                  </Box>
+                                )}
+                              </Stack>
+                            </AccordionDetails>
+                          </Accordion>
+                        )}
                       </Stack>
                     </CardContent>
 
@@ -656,7 +676,7 @@ const MyWork = () => {
                           </Button>
                         )}
                         
-                        {project.live && (
+                        {project.live && project.live !== "#" && (
                           <Button
                             variant="contained"
                             startIcon={<LaunchIcon />}
