@@ -67,20 +67,6 @@ const Services = () => {
       icon: <ToolIcon />,
       techIcons: [SiGit, SiPostman],
       color: "#B415FF"
-    },
-    {
-      title: "Cloud & Deployment",
-      description: "Experience with cloud platforms and deployment services for full-stack applications.",
-      icon: <DeployIcon />,
-      techIcons: [SiVercel, SiNetlify],
-      color: "#B415FF"
-    },
-    {
-      title: "Continuous Learning",
-      description: "Always exploring new technologies, frameworks, and industry best practices.",
-      icon: <CodeIcon />,
-      techIcons: [],
-      color: "#B415FF"
     }
   ]
 
@@ -165,9 +151,9 @@ const Services = () => {
           </motion.div>
 
           {/* Skills Grid */}
-          <Grid container spacing={3}>
+          <Grid container spacing={3} sx={{ maxWidth: '800px', mx: 'auto' }}>
             {skillsData.map((skill, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Grid item xs={6} sm={6} md={6} key={index}>
                 <motion.div
                   variants={itemVariants}
                 >

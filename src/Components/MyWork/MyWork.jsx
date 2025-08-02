@@ -168,9 +168,9 @@ const MyWork = () => {
          <motion.div 
            style={{
              display: 'grid',
-             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+             gridTemplateColumns: 'repeat(2, 1fr)',
              gap: '24px',
-             maxWidth: '900px',
+             maxWidth: '800px',
              margin: '0 auto'
            }}
            variants={containerVariants}
@@ -183,51 +183,51 @@ const MyWork = () => {
               variants={itemVariants}
               style={{ position: 'relative' }}
             >
-              <div 
-                style={{
-                  background: 'rgba(30, 30, 30, 0.7)',
-                  backdropFilter: 'blur(20px)',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = '0 25px 60px rgba(180, 21, 255, 0.15)';
-                  e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                }}
-              >
+                             <div 
+                 style={{
+                   height: '480px',
+                   background: 'rgba(30, 30, 30, 0.7)',
+                   backdropFilter: 'blur(20px)',
+                   borderRadius: '20px',
+                   border: '1px solid rgba(255, 255, 255, 0.1)',
+                   overflow: 'hidden',
+                   transition: 'all 0.3s ease',
+                   cursor: 'pointer',
+                   display: 'flex',
+                   flexDirection: 'column'
+                 }}
+                 onMouseEnter={(e) => {
+                   e.currentTarget.style.transform = 'translateY(-4px)';
+                   e.currentTarget.style.boxShadow = '0 15px 40px rgba(180, 21, 255, 0.1)';
+                   e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.3)';
+                 }}
+                 onMouseLeave={(e) => {
+                   e.currentTarget.style.transform = 'translateY(0)';
+                   e.currentTarget.style.boxShadow = 'none';
+                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                 }}
+               >
                                  {/* Project Image */}
-                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative', padding: '20px 20px 0 20px' }}>
+                 <div style={{ height: '200px', overflow: 'hidden', position: 'relative', padding: '16px' }}>
                    <div style={{
                      width: '100%',
                      height: '100%',
                      borderRadius: '12px',
                      overflow: 'hidden',
                      background: 'rgba(255, 255, 255, 0.02)',
-                     border: '1px solid rgba(255, 255, 255, 0.05)',
-                     display: 'flex',
-                     alignItems: 'center',
-                     justifyContent: 'center'
+                     border: '1px solid rgba(255, 255, 255, 0.05)'
                    }}>
                      <img
                        src={project.w_img}
                        alt={project.title}
                        style={{
-                         width: '90%',
-                         height: '90%',
-                         objectFit: 'contain',
+                         width: '100%',
+                         height: '100%',
+                         objectFit: 'cover',
                          transition: 'transform 0.3s ease'
                        }}
                        onMouseEnter={(e) => {
-                         e.target.style.transform = 'scale(1.02)';
+                         e.target.style.transform = 'scale(1.05)';
                        }}
                        onMouseLeave={(e) => {
                          e.target.style.transform = 'scale(1)';
@@ -255,8 +255,8 @@ const MyWork = () => {
                   )}
                 </div>
 
-                {/* Project Content */}
-                <div style={{ padding: '24px' }}>
+                                 {/* Project Content */}
+                 <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   {/* Category */}
                   <div style={{ marginBottom: '16px' }}>
                     <span 
@@ -287,20 +287,21 @@ const MyWork = () => {
                     {project.title}
                   </h3>
 
-                  {/* Description */}
-                  <p 
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.7)',
-                      lineHeight: 1.6,
-                      marginBottom: '24px',
-                      fontSize: '14px'
-                    }}
-                  >
-                    {project.description}
-                  </p>
+                                     {/* Description */}
+                   <p 
+                     style={{
+                       color: 'rgba(255, 255, 255, 0.7)',
+                       lineHeight: 1.5,
+                       marginBottom: '16px',
+                       fontSize: '0.85rem',
+                       flex: 1
+                     }}
+                   >
+                     {project.description}
+                   </p>
 
-                  {/* Tech Stack */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
+                   {/* Tech Stack */}
+                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
                     {project.technologies.map((tech, techIndex) => {
                       const IconComponent = getTechIcon(tech);
                       return (
