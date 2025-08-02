@@ -142,7 +142,7 @@ const Services = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 255, 255, 0.85)",
                   maxWidth: "500px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -154,19 +154,19 @@ const Services = () => {
             </Box>
           </motion.div>
 
-          {/* Skills Grid */}
-          <Grid container spacing={3} sx={{ maxWidth: "800px", mx: "auto" }}>
+          {/* Skills Grid - Responsive Layout */}
+          <Grid container spacing={3} sx={{ maxWidth: "1000px", mx: "auto" }}>
             {skillsData.map((skill, index) => (
-              <Grid item xs={6} sm={6} md={6} key={index}>
+              <Grid item xs={12} sm={6} md={6} key={index}>
                 <motion.div variants={itemVariants}>
                   <Card
                     sx={{
-                      height: "240px",
-                      background: "rgba(30, 30, 30, 0.6)",
-                      backdropFilter: "blur(10px)",
+                      height: "280px",
+                      background: "rgba(17, 17, 17, 0.8)",
+                      backdropFilter: "blur(20px)",
                       border: "1px solid rgba(255, 255, 255, 0.08)",
                       borderRadius: "16px",
-                      p: 2.5,
+                      p: 3,
                       transition: "all 0.3s ease",
                       position: "relative",
                       overflow: "hidden",
@@ -174,7 +174,7 @@ const Services = () => {
                       "&:hover": {
                         border: "1px solid rgba(180, 21, 255, 0.3)",
                         transform: "translateY(-4px)",
-                        boxShadow: "0 8px 25px rgba(180, 21, 255, 0.1)",
+                        boxShadow: "0 8px 32px rgba(180, 21, 255, 0.15)",
                       },
                     }}
                   >
@@ -186,7 +186,7 @@ const Services = () => {
                         flexDirection: "column",
                       }}
                     >
-                      <Stack spacing={2} sx={{ height: "100%" }}>
+                      <Stack spacing={2.5} sx={{ height: "100%" }}>
                         {/* Icon */}
                         <Box
                           sx={{
@@ -212,7 +212,7 @@ const Services = () => {
                             fontWeight: 600,
                             color: "white",
                             lineHeight: 1.3,
-                            fontSize: "1rem",
+                            fontSize: "1.1rem",
                           }}
                         >
                           {skill.title}
@@ -222,9 +222,9 @@ const Services = () => {
                         <Typography
                           variant="body2"
                           sx={{
-                            color: "rgba(255, 255, 255, 0.7)",
-                            lineHeight: 1.5,
-                            fontSize: "0.85rem",
+                            color: "rgba(255, 255, 255, 0.85)",
+                            lineHeight: 1.6,
+                            fontSize: "0.9rem",
                             flex: 1,
                           }}
                         >
@@ -240,17 +240,22 @@ const Services = () => {
                                 <Box
                                   key={iconIndex}
                                   sx={{
-                                    width: 24,
-                                    height: 24,
-                                    borderRadius: "6px",
+                                    width: 28,
+                                    height: 28,
+                                    borderRadius: "8px",
                                     background: "rgba(255, 255, 255, 0.05)",
-                                    border:
-                                      "1px solid rgba(255, 255, 255, 0.1)",
+                                    border: "1px solid rgba(255, 255, 255, 0.1)",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
                                     color: "rgba(255, 255, 255, 0.8)",
-                                    fontSize: "12px",
+                                    fontSize: "14px",
+                                    transition: "all 0.3s ease",
+                                    "&:hover": {
+                                      background: "rgba(180, 21, 255, 0.1)",
+                                      borderColor: "rgba(180, 21, 255, 0.3)",
+                                      color: "#B415FF",
+                                    },
                                   }}
                                 >
                                   <IconComponent />

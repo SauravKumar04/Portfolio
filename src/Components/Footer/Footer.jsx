@@ -98,9 +98,9 @@ const Footer = () => {
       component="footer"
       sx={{
         background:
-          "linear-gradient(135deg, rgba(22, 21, 19, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%)",
+          "linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(17, 17, 17, 0.95) 100%)",
         backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.08)",
         borderLeft: "none",
         borderRight: "none",
         borderBottom: "none",
@@ -167,7 +167,7 @@ const Footer = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "rgba(255, 255, 255, 0.8)",
+                      color: "rgba(255, 255, 255, 0.85)",
                       lineHeight: 1.7,
                       maxWidth: "300px",
                     }}
@@ -373,6 +373,7 @@ const Footer = () => {
                             edge="end"
                             sx={{
                               color: "#B415FF",
+                              transition: "all 0.3s ease",
                               "&:hover": {
                                 background: "rgba(180, 21, 255, 0.1)",
                               },
@@ -385,7 +386,7 @@ const Footer = () => {
                     }}
                     sx={{
                       "& .MuiOutlinedInput-root": {
-                        borderRadius: "25px",
+                        borderRadius: "12px",
                         background: "rgba(255, 255, 255, 0.05)",
                         "& fieldset": {
                           borderColor: "rgba(255, 255, 255, 0.2)",

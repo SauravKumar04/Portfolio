@@ -76,10 +76,10 @@ const MyWork = () => {
         position: "relative",
         paddingTop: "80px",
         paddingBottom: "80px",
-        background: "#161513",
+        background: "#0A0A0A",
         backgroundImage: `
-          radial-gradient(circle at 20% 80%, rgba(180, 21, 255, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(223, 137, 9, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 20% 80%, rgba(180, 21, 255, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(223, 137, 9, 0.08) 0%, transparent 50%),
           radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%)
         `,
         backgroundAttachment: "fixed",
@@ -96,7 +96,7 @@ const MyWork = () => {
           width: "300px",
           minHeight: "380px",
           background:
-            "radial-gradient(circle, rgba(180, 21, 255, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(180, 21, 255, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           animation: "float 6s ease-in-out infinite",
@@ -110,7 +110,7 @@ const MyWork = () => {
           width: "250px",
           height: "250px",
           background:
-            "radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(223, 137, 9, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           animation: "float 6s ease-in-out infinite reverse",
@@ -122,7 +122,7 @@ const MyWork = () => {
         style={{
           position: "relative",
           zIndex: 10,
-          maxWidth: "1000px",
+          maxWidth: "1200px",
           margin: "0 auto",
           padding: "0 20px",
         }}
@@ -147,7 +147,7 @@ const MyWork = () => {
           <p
             style={{
               fontSize: "1rem",
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "rgba(255, 255, 255, 0.85)",
               maxWidth: "500px",
               margin: "0 auto",
               lineHeight: 1.6,
@@ -174,10 +174,10 @@ const MyWork = () => {
             >
               <div
                 style={{
-                  minHeight: "380px",
-                  background: "rgba(20, 20, 20, 0.8)",
+                  minHeight: "420px",
+                  background: "rgba(17, 17, 17, 0.8)",
                   backdropFilter: "blur(20px)",
-                  borderRadius: "20px",
+                  borderRadius: "16px",
                   border: "1px solid rgba(255, 255, 255, 0.08)",
                   overflow: "hidden",
                   transition: "all 0.3s ease",
@@ -269,7 +269,7 @@ const MyWork = () => {
 
                   <p
                     style={{
-                      color: "rgba(255, 255, 255, 0.7)",
+                      color: "rgba(255, 255, 255, 0.85)",
                       fontSize: "0.9rem",
                       lineHeight: 1.6,
                       marginBottom: "24px",
@@ -302,6 +302,7 @@ const MyWork = () => {
                             background: "rgba(255, 255, 255, 0.03)",
                             border: "1px solid rgba(255, 255, 255, 0.08)",
                             fontSize: "0.8rem",
+                            transition: "all 0.3s ease",
                           }}
                           title={tech}
                         >
@@ -343,12 +344,21 @@ const MyWork = () => {
                           justifyContent: "center",
                           gap: "10px",
                           padding: "14px 24px",
-                          borderRadius: "14px",
+                          borderRadius: "12px",
                           border: "1px solid rgba(180, 21, 255, 0.2)",
                           color: "#B415FF",
                           background: "rgba(180, 21, 255, 0.05)",
                           textDecoration: "none",
                           fontWeight: 600,
+                          transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(180, 21, 255, 0.1)";
+                          e.currentTarget.style.borderColor = "rgba(180, 21, 255, 0.3)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "rgba(180, 21, 255, 0.05)";
+                          e.currentTarget.style.borderColor = "rgba(180, 21, 255, 0.2)";
                         }}
                       >
                         <Github size={18} />
@@ -367,7 +377,7 @@ const MyWork = () => {
                           justifyContent: "center",
                           gap: "10px",
                           padding: "14px 24px",
-                          borderRadius: "14px",
+                          borderRadius: "12px",
                           background: "rgba(180, 21, 255, 0.08)",
                           border: "1px solid rgba(180, 21, 255, 0.2)",
                           backdropFilter: "blur(14px)",
@@ -419,13 +429,22 @@ const MyWork = () => {
               alignItems: "center",
               gap: "12px",
               padding: "16px 32px",
-              borderRadius: "16px",
+              borderRadius: "12px",
               border: "1px solid rgba(255, 255, 255, 0.15)",
               color: "white",
               background: "rgba(255, 255, 255, 0.02)",
               textDecoration: "none",
               fontSize: "0.9rem",
               fontWeight: 500,
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(180, 21, 255, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(180, 21, 255, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
             }}
           >
             <Github size={18} />

@@ -49,8 +49,8 @@ const Hero = () => {
 
   const avatarVariants = {
     hover: {
-      scale: 1.1,
-      rotate: 5,
+      scale: 1.05,
+      rotate: 2,
       transition: {
         type: "spring",
         stiffness: 300,
@@ -93,7 +93,7 @@ const Hero = () => {
           width: "300px",
           height: "300px",
           background:
-            "radial-gradient(circle, rgba(180, 21, 255, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(180, 21, 255, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(60px)",
           zIndex: 0,
@@ -108,7 +108,7 @@ const Hero = () => {
           width: "250px",
           height: "250px",
           background:
-            "radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(223, 137, 9, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(60px)",
           zIndex: 0,
@@ -122,15 +122,15 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <Stack spacing={3} alignItems="center" textAlign="center">
+          <Stack spacing={4} alignItems="center" textAlign="center">
             {/* Profile Image */}
             <motion.div variants={itemVariants}>
               <Box sx={{ position: "relative", display: "inline-block" }}>
                 <motion.div variants={avatarVariants} whileHover="hover">
                   <Box
                     sx={{
-                      width: { xs: 200, sm: 250, md: 280 },
-                      height: { xs: 200, sm: 250, md: 280 },
+                      width: { xs: 180, sm: 220, md: 250 },
+                      height: { xs: 180, sm: 220, md: 250 },
                       borderRadius: "50%",
                       border: "4px solid transparent",
                       background: "linear-gradient(135deg, #DF8909, #B415FF)",
@@ -140,8 +140,8 @@ const Hero = () => {
                       transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       "&:hover": {
                         boxShadow:
-                          "0 25px 80px rgba(180, 21, 255, 0.4), 0 0 0 1px rgba(180, 21, 255, 0.3)",
-                        transform: "scale(1.05)",
+                          "0 25px 80px rgba(180, 21, 255, 0.3), 0 0 0 1px rgba(180, 21, 255, 0.2)",
+                        transform: "scale(1.02)",
                       },
                     }}
                   >
@@ -174,7 +174,7 @@ const Hero = () => {
                       height: 20,
                       background: "#4CAF50",
                       borderRadius: "50%",
-                      border: "3px solid #161513",
+                      border: "3px solid #0A0A0A",
                       animation: "pulse 2s infinite",
                     }}
                   />
@@ -189,27 +189,52 @@ const Hero = () => {
                 spacing={1}
                 flexWrap="wrap"
                 justifyContent="center"
+                sx={{ gap: 1 }}
               >
                 <Chip
                   icon={<SchoolIcon />}
                   label="NIT Jamshedpur"
                   variant="outlined"
                   size="small"
-                  className="glass-effect"
+                  sx={{
+                    background: "rgba(17, 17, 17, 0.8)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    color: "rgba(255, 255, 255, 0.9)",
+                    "&:hover": {
+                      borderColor: "rgba(180, 21, 255, 0.3)",
+                    }
+                  }}
                 />
                 <Chip
                   icon={<CodeIcon />}
                   label="Full-Stack Web Developer"
                   variant="outlined"
                   size="small"
-                  className="glass-effect"
+                  sx={{
+                    background: "rgba(17, 17, 17, 0.8)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    color: "rgba(255, 255, 255, 0.9)",
+                    "&:hover": {
+                      borderColor: "rgba(180, 21, 255, 0.3)",
+                    }
+                  }}
                 />
                 <Chip
                   icon={<LocationIcon />}
                   label="India"
                   variant="outlined"
                   size="small"
-                  className="glass-effect"
+                  sx={{
+                    background: "rgba(17, 17, 17, 0.8)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    color: "rgba(255, 255, 255, 0.9)",
+                    "&:hover": {
+                      borderColor: "rgba(180, 21, 255, 0.3)",
+                    }
+                  }}
                 />
               </Stack>
             </motion.div>
@@ -219,7 +244,7 @@ const Hero = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.2rem", sm: "3.2rem", md: "3rem" },
+                  fontSize: { xs: "2rem", sm: "2.8rem", md: "3.2rem" },
                   fontWeight: 700,
                   lineHeight: 1.2,
                   maxWidth: "900px",
@@ -280,15 +305,15 @@ const Hero = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "rgba(255, 255, 255, 0.8)",
+                  color: "rgba(255, 255, 255, 0.85)",
                   maxWidth: "600px",
                   mx: "auto",
                   lineHeight: 1.8,
-                  fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem" },
+                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                   fontWeight: 400,
                 }}
               >
-                I’m an engineering student at NIT Jamshedpur with a passion for
+                I'm an engineering student at NIT Jamshedpur with a passion for
                 building robust full-stack applications. With a strong
                 foundation in JavaScript, React, Node.js, and MongoDB, I
                 specialize in crafting performant, user-friendly solutions that
@@ -312,22 +337,22 @@ const Hero = () => {
                       size="large"
                       startIcon={<ConnectIcon />}
                       sx={{
-                        borderRadius: "16px",
+                        borderRadius: "12px",
                         px: 4,
                         py: 2,
                         fontSize: "1rem",
                         fontWeight: 600,
                         textTransform: "none",
                         minWidth: "180px",
-                        backdropFilter: "blur(10px)",
-                        background: "rgba(180, 21, 255, 0.2)",
+                        background: "linear-gradient(135deg, #DF8909, #B415FF)",
                         color: "#fff",
                         boxShadow: "0 4px 20px rgba(180, 21, 255, 0.3)",
-                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
                         transition: "all 0.3s ease",
                         "&:hover": {
-                          background: "rgba(180, 21, 255, 0.35)",
+                          background: "linear-gradient(135deg, #FFB23D, #D665FF)",
                           boxShadow: "0 6px 25px rgba(180, 21, 255, 0.4)",
+                          transform: "translateY(-2px)",
                         },
                       }}
                     >
@@ -344,24 +369,25 @@ const Hero = () => {
                     href={resume}
                     download="SauravKumar_Resume.pdf"
                     sx={{
-                      borderRadius: "16px",
+                      borderRadius: "12px",
                       px: 4,
                       py: 2,
                       fontSize: "1rem",
                       fontWeight: 600,
                       textTransform: "none",
                       minWidth: "180px",
-                      backdropFilter: "blur(10px)",
                       background: "rgba(255, 255, 255, 0.05)",
                       color: "#B415FF",
-                      border: "1px solid rgba(180, 21, 255, 0.4)",
+                      border: "1px solid rgba(180, 21, 255, 0.3)",
                       boxShadow: "0 2px 12px rgba(180, 21, 255, 0.2)",
+                      backdropFilter: "blur(10px)",
                       transition: "all 0.3s ease",
                       "&:hover": {
                         background: "rgba(180, 21, 255, 0.1)",
                         color: "#fff",
                         borderColor: "rgba(180, 21, 255, 0.5)",
                         boxShadow: "0 4px 20px rgba(180, 21, 255, 0.3)",
+                        transform: "translateY(-2px)",
                       },
                     }}
                   >

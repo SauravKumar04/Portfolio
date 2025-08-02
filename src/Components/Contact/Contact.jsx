@@ -175,7 +175,7 @@ const Contact = () => {
           width: "300px",
           height: "300px",
           background:
-            "radial-gradient(circle, rgba(180, 21, 255, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(180, 21, 255, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(60px)",
           zIndex: 0,
@@ -189,7 +189,7 @@ const Contact = () => {
           width: "250px",
           height: "250px",
           background:
-            "radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(223, 137, 9, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(50px)",
           zIndex: 0,
@@ -211,7 +211,7 @@ const Contact = () => {
                   fontSize: { xs: "2rem", md: "2.5rem" },
                   fontWeight: 600,
                   fontFamily: "Inter, sans-serif",
-                  color: "white", // ✅ FIXED
+                  color: "white",
                   mb: 2,
                   position: "relative",
                   display: "inline-block",
@@ -239,13 +239,13 @@ const Contact = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 255, 255, 0.85)",
                   maxWidth: "600px",
                   mx: "auto",
                   lineHeight: 1.6,
                 }}
               >
-                Have a project in mind? Let’s work together to bring your ideas
+                Have a project in mind? Let's work together to bring your ideas
                 to life.
               </Typography>
             </Box>
@@ -265,13 +265,18 @@ const Contact = () => {
             <Box sx={{ flex: 1 }}>
               <motion.div variants={itemVariants}>
                 <Card
-                  className="glass-effect"
                   sx={{
-                    background: "rgba(30, 30, 30, 0.9)",
+                    background: "rgba(17, 17, 17, 0.8)",
                     backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "25px",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    borderRadius: "16px",
                     p: 4,
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      borderColor: "rgba(180, 21, 255, 0.2)",
+                      transform: "translateY(-4px)",
+                      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+                    },
                   }}
                 >
                   <CardContent sx={{ p: 0 }}>
@@ -285,19 +290,19 @@ const Contact = () => {
                         WebkitTextFillColor: "transparent",
                       }}
                     >
-                      Let’s Talk
+                      Let's Talk
                     </Typography>
 
                     <Typography
                       variant="body1"
                       sx={{
-                        color: "rgba(255, 255, 255, 0.8)",
+                        color: "rgba(255, 255, 255, 0.85)",
                         fontSize: "1.1rem",
                         lineHeight: 1.8,
                         mb: 4,
                       }}
                     >
-                      I’m always open to discussing new projects, internships,
+                      I'm always open to discussing new projects, internships,
                       or just connecting.
                     </Typography>
 
@@ -319,9 +324,10 @@ const Contact = () => {
                               alignItems: "center",
                               gap: 3,
                               p: 2,
-                              borderRadius: "15px",
+                              borderRadius: "12px",
                               background: "rgba(255, 255, 255, 0.05)",
-                              border: "1px solid rgba(255, 255, 255, 0.1)",
+                              border: "1px solid rgba(255, 255, 255, 0.08)",
+                              transition: "all 0.3s ease",
                               "&:hover": {
                                 background: `${info.color}15`,
                                 border: `1px solid ${info.color}30`,
@@ -378,6 +384,7 @@ const Contact = () => {
                               background: `${social.color}20`,
                               color: social.color,
                               border: `1px solid ${social.color}30`,
+                              transition: "all 0.3s ease",
                               "&:hover": {
                                 background: `${social.color}30`,
                                 boxShadow: `0 5px 15px ${social.color}40`,
@@ -398,13 +405,18 @@ const Contact = () => {
             <Box sx={{ flex: 1 }}>
               <motion.div variants={itemVariants}>
                 <Card
-                  className="glass-effect"
                   sx={{
-                    background: "rgba(30, 30, 30, 0.9)",
+                    background: "rgba(17, 17, 17, 0.8)",
                     backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "25px",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    borderRadius: "16px",
                     p: 4,
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      borderColor: "rgba(180, 21, 255, 0.2)",
+                      transform: "translateY(-4px)",
+                      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+                    },
                   }}
                 >
                   <CardContent sx={{ p: 0 }}>
@@ -434,6 +446,17 @@ const Contact = () => {
                               color: "rgba(255, 255, 255, 0.7)",
                             },
                             "& .MuiInputBase-input": { color: "white" },
+                            "& .MuiOutlinedInput-root": {
+                              "& fieldset": {
+                                borderColor: "rgba(255, 255, 255, 0.2)",
+                              },
+                              "&:hover fieldset": {
+                                borderColor: "rgba(180, 21, 255, 0.4)",
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: "#B415FF",
+                              },
+                            },
                           }}
                         />
                         <TextField
@@ -448,6 +471,17 @@ const Contact = () => {
                               color: "rgba(255, 255, 255, 0.7)",
                             },
                             "& .MuiInputBase-input": { color: "white" },
+                            "& .MuiOutlinedInput-root": {
+                              "& fieldset": {
+                                borderColor: "rgba(255, 255, 255, 0.2)",
+                              },
+                              "&:hover fieldset": {
+                                borderColor: "rgba(180, 21, 255, 0.4)",
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: "#B415FF",
+                              },
+                            },
                           }}
                         />
                         <TextField
@@ -464,6 +498,17 @@ const Contact = () => {
                               color: "rgba(255, 255, 255, 0.7)",
                             },
                             "& .MuiInputBase-input": { color: "white" },
+                            "& .MuiOutlinedInput-root": {
+                              "& fieldset": {
+                                borderColor: "rgba(255, 255, 255, 0.2)",
+                              },
+                              "&:hover fieldset": {
+                                borderColor: "rgba(180, 21, 255, 0.4)",
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: "#B415FF",
+                              },
+                            },
                           }}
                         />
                         <motion.div
@@ -486,15 +531,17 @@ const Contact = () => {
                             sx={{
                               background:
                                 "linear-gradient(135deg, #DF8909, #B415FF)",
-                              borderRadius: "50px",
+                              borderRadius: "12px",
                               py: 2,
                               fontSize: "1.1rem",
                               fontWeight: 600,
                               textTransform: "none",
+                              transition: "all 0.3s ease",
                               "&:hover": {
                                 background:
                                   "linear-gradient(135deg, #FFB23D, #D665FF)",
                                 boxShadow: "0 8px 25px rgba(180, 21, 255, 0.4)",
+                                transform: "translateY(-2px)",
                               },
                             }}
                           >

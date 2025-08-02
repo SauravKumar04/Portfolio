@@ -69,10 +69,10 @@ const Navbar = () => {
 
   const fireVariants = {
     animate: {
-      scale: [1, 1.2, 1],
+      scale: [1, 1.1, 1],
       opacity: [1, 0.8, 1],
       transition: {
-        duration: 1,
+        duration: 2,
         repeat: Infinity,
         ease: "easeInOut"
       }
@@ -90,7 +90,7 @@ const Navbar = () => {
     <Box sx={{ width: 280 }}>
       <Box
         sx={{
-          background: 'linear-gradient(135deg, rgba(22, 21, 19, 0.98) 0%, rgba(30, 20, 25, 0.95) 50%, rgba(40, 20, 30, 0.92) 100%)',
+          background: 'rgba(17, 17, 17, 0.98)',
           backdropFilter: 'blur(20px)',
           height: '100%',
           display: 'flex',
@@ -120,12 +120,12 @@ const Navbar = () => {
                       handleDrawerToggle()
                     }}
                     sx={{
-                      borderRadius: '15px',
+                      borderRadius: '12px',
                       color: 'white',
                       py: 2,
                       px: 3,
                       '&:hover': {
-                        background: 'linear-gradient(135deg, rgba(223, 137, 9, 0.2) 0%, rgba(180, 21, 255, 0.2) 100%)',
+                        background: 'rgba(180, 21, 255, 0.1)',
                         transform: 'translateX(10px)'
                       },
                       transition: 'all 0.3s ease'
@@ -135,7 +135,7 @@ const Navbar = () => {
                       primary={item.name} 
                       sx={{ 
                         '& .MuiTypography-root': { 
-                          fontSize: '1.1rem',
+                          fontSize: '1rem',
                           fontWeight: 500
                         } 
                       }} 
@@ -158,10 +158,10 @@ const Navbar = () => {
           elevation={0}
           sx={{
             background: isScrolled 
-              ? 'rgba(22, 21, 19, 0.95)' 
+              ? 'rgba(17, 17, 17, 0.95)' 
               : 'transparent',
             backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-            borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
+            borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
             transition: 'all 0.3s ease',
             py: 0.5
           }}
@@ -201,7 +201,7 @@ const Navbar = () => {
                         onClick={() => setMenu(item.id)}
                         sx={{
                           color: 'white',
-                          fontSize: '0.95rem',
+                          fontSize: '0.9rem',
                           fontWeight: 500,
                           position: 'relative',
                           textTransform: 'none',
@@ -222,7 +222,7 @@ const Navbar = () => {
                             width: '100%'
                           },
                           '&:hover': {
-                            color: '#F778A1',
+                            color: '#B415FF',
                             background: 'transparent'
                           }
                         }}
@@ -235,33 +235,35 @@ const Navbar = () => {
               </Box>
 
               {/* Connect Button - Desktop */}
-<Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-  <AnchorLink className='anchor-link' offset={50} href='#contact'>
-    <Box
-      sx={{
-        px: 3,
-        py: 1,
-        borderRadius: '999px',
-        backgroundColor: 'rgba(255, 255, 255, 0.06)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        color: '#fff',
-        fontWeight: 500,
-        fontSize: '0.9rem',
-        textAlign: 'center',
-        cursor: 'pointer',
-        transition: 'background 0.3s ease',
-        '&:hover': {
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        },
-      }}
-    >
-      Connect With Me
-    </Box>
-  </AnchorLink>
-</Box>
-
+              <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                <AnchorLink className='anchor-link' offset={50} href='#contact'>
+                  <Box
+                    sx={{
+                      px: 3,
+                      py: 1.5,
+                      borderRadius: '12px',
+                      backgroundColor: 'rgba(180, 21, 255, 0.1)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(180, 21, 255, 0.2)',
+                      color: '#fff',
+                      fontWeight: 600,
+                      fontSize: '0.9rem',
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        backgroundColor: 'rgba(180, 21, 255, 0.15)',
+                        borderColor: 'rgba(180, 21, 255, 0.3)',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 8px 25px rgba(180, 21, 255, 0.2)'
+                      },
+                    }}
+                  >
+                    Connect With Me
+                  </Box>
+                </AnchorLink>
+              </Box>
 
               {/* Mobile Menu Button */}
               <IconButton

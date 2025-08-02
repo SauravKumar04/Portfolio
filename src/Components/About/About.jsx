@@ -78,7 +78,7 @@ const About = () => {
           width: "200px",
           height: "200px",
           background:
-            "radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(223, 137, 9, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           filter: "blur(50px)",
           zIndex: 0,
@@ -112,7 +112,7 @@ const About = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
+                  color: "rgba(255, 255, 255, 0.85)",
                   maxWidth: "500px",
                   mx: "auto",
                   lineHeight: 1.6,
@@ -131,12 +131,18 @@ const About = () => {
                 {/* About Text */}
                 <motion.div variants={itemVariants}>
                   <Card
-                    className="glass-effect"
                     sx={{
-                      p: 3,
-                      borderRadius: "20px",
-                      background: "rgba(30, 30, 30, 0.8)",
+                      p: 4,
+                      borderRadius: "16px",
+                      background: "rgba(17, 17, 17, 0.8)",
                       backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        borderColor: "rgba(180, 21, 255, 0.2)",
+                        transform: "translateY(-4px)",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+                      },
                     }}
                   >
                     <CardContent sx={{ p: 0 }}>
@@ -175,12 +181,18 @@ const About = () => {
                 {/* Skills Progress */}
                 <motion.div variants={itemVariants}>
                   <Card
-                    className="glass-effect"
                     sx={{
-                      p: 3,
-                      borderRadius: "20px",
-                      background: "rgba(30, 30, 30, 0.8)",
+                      p: 4,
+                      borderRadius: "16px",
+                      background: "rgba(17, 17, 17, 0.8)",
                       backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        borderColor: "rgba(180, 21, 255, 0.2)",
+                        transform: "translateY(-4px)",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+                      },
                     }}
                   >
                     <CardContent sx={{ p: 0 }}>
@@ -228,7 +240,7 @@ const About = () => {
                                   {skill.icon}
                                   <Typography
                                     variant="body1"
-                                    sx={{ fontWeight: 500 }}
+                                    sx={{ fontWeight: 500, color: "white" }}
                                   >
                                     {skill.name}
                                   </Typography>
