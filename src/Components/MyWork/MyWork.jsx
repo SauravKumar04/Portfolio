@@ -2,9 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   Github, 
-  ExternalLink, 
-  Code2,
-  ArrowRight
+  ExternalLink
 } from 'lucide-react';
 import {
   SiJavascript,
@@ -12,10 +10,6 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiTailwindcss,
-  SiNextdotjs,
-  SiTypescript,
-  SiPostgresql,
   SiStripe,
   SiRazorpay
 } from 'react-icons/si';
@@ -35,15 +29,10 @@ const MyWork = () => {
       'Express.js': SiExpress,
       'Express': SiExpress,
       'MongoDB': SiMongodb,
-      'Tailwind CSS': SiTailwindcss,
-      'TailwindCSS': SiTailwindcss,
-      'Next.js': SiNextdotjs,
-      'TypeScript': SiTypescript,
-      'PostgreSQL': SiPostgresql,
       'Stripe': SiStripe,
       'Razorpay': SiRazorpay,
     };
-    return iconMap[tech] || Code2;
+    return iconMap[tech] || null;
   };
 
   // Enhanced project data with proper tech stacks
@@ -131,7 +120,7 @@ const MyWork = () => {
         }}
       />
       
-      <div style={{ position: 'relative', zIndex: 10, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: '1000px', margin: '0 auto', padding: '0 20px' }}>
         {/* Section Header */}
         <motion.div 
           style={{ textAlign: 'center', marginBottom: '48px' }}
@@ -164,110 +153,87 @@ const MyWork = () => {
           </p>
         </motion.div>
 
-                 {/* Projects Grid */}
-         <motion.div 
-           style={{
-             display: 'grid',
-             gridTemplateColumns: 'repeat(2, 1fr)',
-             gap: '24px',
-             maxWidth: '800px',
-             margin: '0 auto'
-           }}
-           variants={containerVariants}
-           initial="hidden"
-           animate={isInView ? "visible" : "hidden"}
-         >
+        {/* Projects Grid */}
+        <motion.div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '32px',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {enhancedProjects.map((project, index) => (
             <motion.div
               key={project.w_no}
               variants={itemVariants}
               style={{ position: 'relative' }}
             >
-                             <div 
-                 style={{
-                   height: '480px',
-                   background: 'rgba(30, 30, 30, 0.7)',
-                   backdropFilter: 'blur(20px)',
-                   borderRadius: '20px',
-                   border: '1px solid rgba(255, 255, 255, 0.1)',
-                   overflow: 'hidden',
-                   transition: 'all 0.3s ease',
-                   cursor: 'pointer',
-                   display: 'flex',
-                   flexDirection: 'column'
-                 }}
-                 onMouseEnter={(e) => {
-                   e.currentTarget.style.transform = 'translateY(-4px)';
-                   e.currentTarget.style.boxShadow = '0 15px 40px rgba(180, 21, 255, 0.1)';
-                   e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.3)';
-                 }}
-                 onMouseLeave={(e) => {
-                   e.currentTarget.style.transform = 'translateY(0)';
-                   e.currentTarget.style.boxShadow = 'none';
-                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                 }}
-               >
-                                 {/* Project Image */}
-                 <div style={{ height: '200px', overflow: 'hidden', position: 'relative', padding: '16px' }}>
-                   <div style={{
-                     width: '100%',
-                     height: '100%',
-                     borderRadius: '12px',
-                     overflow: 'hidden',
-                     background: 'rgba(255, 255, 255, 0.02)',
-                     border: '1px solid rgba(255, 255, 255, 0.05)'
-                   }}>
-                     <img
-                       src={project.w_img}
-                       alt={project.title}
-                       style={{
-                         width: '100%',
-                         height: '100%',
-                         objectFit: 'cover',
-                         transition: 'transform 0.3s ease'
-                       }}
-                       onMouseEnter={(e) => {
-                         e.target.style.transform = 'scale(1.05)';
-                       }}
-                       onMouseLeave={(e) => {
-                         e.target.style.transform = 'scale(1)';
-                       }}
-                     />
-                   </div>
-                  
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
-                      <span 
-                        style={{
-                          padding: '4px 12px',
-                          borderRadius: '16px',
-                          fontSize: '12px',
-                          fontWeight: '600',
-                          background: 'rgba(180, 21, 255, 0.2)',
-                          color: '#B415FF',
-                          border: '1px solid rgba(180, 21, 255, 0.3)'
-                        }}
-                      >
-                        Featured
-                      </span>
-                    </div>
-                  )}
+              <div 
+                style={{
+                  height: '380px',
+                  background: 'rgba(20, 20, 20, 0.8)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(180, 21, 255, 0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                }}
+              >
+                {/* Project Number Badge */}
+                <div 
+                  style={{
+                    position: 'absolute',
+                    top: '24px',
+                    right: '24px',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '12px',
+                    background: 'rgba(180, 21, 255, 0.1)',
+                    border: '1px solid rgba(180, 21, 255, 0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    color: '#B415FF'
+                  }}
+                >
+                  {project.w_no}
                 </div>
 
-                                 {/* Project Content */}
-                 <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                {/* Project Content */}
+                <div style={{ padding: '32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   {/* Category */}
-                  <div style={{ marginBottom: '16px' }}>
+                  <div style={{ marginBottom: '20px' }}>
                     <span 
                       style={{
-                        padding: '4px 12px',
-                        borderRadius: '16px',
-                        fontSize: '12px',
+                        padding: '6px 16px',
+                        borderRadius: '20px',
+                        fontSize: '0.75rem',
                         fontWeight: '500',
-                        background: 'rgba(223, 137, 9, 0.1)',
-                        color: '#DF8909',
-                        border: '1px solid rgba(223, 137, 9, 0.2)'
+                        background: 'rgba(180, 21, 255, 0.1)',
+                        color: '#B415FF',
+                        border: '1px solid rgba(180, 21, 255, 0.2)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
                       }}
                     >
                       {project.category}
@@ -277,31 +243,32 @@ const MyWork = () => {
                   {/* Title */}
                   <h3 
                     style={{
-                      fontSize: '1.25rem',
-                      fontWeight: 'bold',
+                      fontSize: '1.5rem',
+                      fontWeight: '700',
                       color: 'white',
                       marginBottom: '16px',
-                      lineHeight: 1.3
+                      lineHeight: 1.2,
+                      fontFamily: 'Inter, sans-serif'
                     }}
                   >
                     {project.title}
                   </h3>
 
-                                     {/* Description */}
-                   <p 
-                     style={{
-                       color: 'rgba(255, 255, 255, 0.7)',
-                       lineHeight: 1.5,
-                       marginBottom: '16px',
-                       fontSize: '0.85rem',
-                       flex: 1
-                     }}
-                   >
-                     {project.description}
-                   </p>
+                  {/* Description */}
+                  <p 
+                    style={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      lineHeight: 1.6,
+                      marginBottom: '24px',
+                      fontSize: '0.9rem',
+                      flex: 1
+                    }}
+                  >
+                    {project.description}
+                  </p>
 
-                   {/* Tech Stack */}
-                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
+                  {/* Tech Stack */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
                     {project.technologies.map((tech, techIndex) => {
                       const IconComponent = getTechIcon(tech);
                       return (
@@ -311,23 +278,32 @@ const MyWork = () => {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '6px',
-                            padding: '6px 12px',
-                            borderRadius: '8px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            fontSize: '12px'
+                            padding: '8px 12px',
+                            borderRadius: '10px',
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            fontSize: '0.8rem',
+                            transition: 'all 0.2s ease'
                           }}
                           title={tech}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'rgba(180, 21, 255, 0.1)';
+                            e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.2)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                          }}
                         >
-                          <IconComponent style={{ width: '14px', height: '14px', color: '#B415FF' }} />
-                          <span style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '12px' }}>{tech}</span>
+                          {IconComponent && <IconComponent style={{ width: '16px', height: '16px', color: '#B415FF' }} />}
+                          <span style={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: '500' }}>{tech}</span>
                         </div>
                       );
                     })}
                   </div>
 
                   {/* Action Buttons */}
-                  <div style={{ display: 'flex', gap: '12px' }}>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                     {project.github && project.github !== '#' && (
                       <a
                         href={project.github}
@@ -339,22 +315,23 @@ const MyWork = () => {
                           alignItems: 'center',
                           justifyContent: 'center',
                           gap: '8px',
-                          padding: '12px 24px',
+                          padding: '12px 20px',
                           borderRadius: '12px',
-                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          border: '1px solid rgba(255, 255, 255, 0.15)',
                           color: 'white',
                           textDecoration: 'none',
-                          fontSize: '14px',
+                          fontSize: '0.85rem',
                           fontWeight: '500',
-                          transition: 'all 0.3s ease'
+                          transition: 'all 0.3s ease',
+                          background: 'rgba(255, 255, 255, 0.02)'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.borderColor = 'rgba(180, 21, 255, 0.5)';
-                          e.target.style.background = 'rgba(180, 21, 255, 0.1)';
+                          e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.4)';
+                          e.currentTarget.style.background = 'rgba(180, 21, 255, 0.1)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                          e.target.style.background = 'transparent';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
                         }}
                       >
                         <Github style={{ width: '16px', height: '16px' }} />
@@ -373,22 +350,22 @@ const MyWork = () => {
                           alignItems: 'center',
                           justifyContent: 'center',
                           gap: '8px',
-                          padding: '12px 24px',
+                          padding: '12px 20px',
                           borderRadius: '12px',
-                          background: 'linear-gradient(135deg, #B415FF, #DF8909)',
+                          background: '#B415FF',
                           color: 'white',
                           textDecoration: 'none',
-                          fontSize: '14px',
+                          fontSize: '0.85rem',
                           fontWeight: '500',
                           transition: 'all 0.3s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.background = 'linear-gradient(135deg, #9333ea, #d97706)';
-                          e.target.style.transform = 'scale(1.02)';
+                          e.currentTarget.style.background = '#9333ea';
+                          e.currentTarget.style.transform = 'translateY(-1px)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.background = 'linear-gradient(135deg, #B415FF, #DF8909)';
-                          e.target.style.transform = 'scale(1)';
+                          e.currentTarget.style.background = '#B415FF';
+                          e.currentTarget.style.transform = 'translateY(0)';
                         }}
                       >
                         <ExternalLink style={{ width: '16px', height: '16px' }} />
@@ -419,26 +396,27 @@ const MyWork = () => {
               gap: '12px',
               padding: '16px 32px',
               borderRadius: '16px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
               color: 'white',
               textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '600',
-              transition: 'all 0.3s ease'
+              fontSize: '0.9rem',
+              fontWeight: '500',
+              transition: 'all 0.3s ease',
+              background: 'rgba(255, 255, 255, 0.02)'
             }}
             onMouseEnter={(e) => {
-              e.target.style.borderColor = 'rgba(180, 21, 255, 0.5)';
-              e.target.style.background = 'rgba(180, 21, 255, 0.1)';
+              e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.4)';
+              e.currentTarget.style.background = 'rgba(180, 21, 255, 0.1)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-              e.target.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
             }}
           >
+            <Github style={{ width: '18px', height: '18px' }} />
             <span>View All Projects</span>
-            <ArrowRight style={{ width: '20px', height: '20px' }} />
           </a>
-          <p style={{ color: 'rgba(255, 255, 255, 0.5)', marginTop: '16px', fontSize: '14px' }}>
+          <p style={{ color: 'rgba(255, 255, 255, 0.5)', marginTop: '16px', fontSize: '0.85rem' }}>
             Discover more projects on my GitHub profile
           </p>
         </motion.div>
