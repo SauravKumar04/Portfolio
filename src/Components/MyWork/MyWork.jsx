@@ -87,30 +87,96 @@ const MyWork = () => {
   };
 
   return (
-    <section id="work" ref={ref} className="relative py-20 lg:py-32 overflow-hidden">
+    <section 
+      id="work" 
+      ref={ref} 
+      style={{
+        position: 'relative',
+        paddingTop: '80px',
+        paddingBottom: '80px',
+        background: '#161513',
+        overflow: 'hidden',
+        minHeight: '100vh'
+      }}
+    >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950"></div>
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '3s'}}></div>
+      <div 
+        style={{
+          position: 'absolute',
+          top: '25%',
+          left: '25%',
+          width: '300px',
+          height: '300px',
+          background: 'radial-gradient(circle, rgba(180, 21, 255, 0.1) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          animation: 'float 6s ease-in-out infinite'
+        }}
+      />
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '25%',
+          right: '25%',
+          width: '250px',
+          height: '250px',
+          background: 'radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(80px)',
+          animation: 'float 6s ease-in-out infinite reverse'
+        }}
+      />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-16 lg:mb-20"
+          style={{ textAlign: 'center', marginBottom: '80px' }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-500/20 bg-primary-500/5 mb-6">
-            <Code2 className="w-4 h-4 text-primary-400" />
-            <span className="text-sm font-medium text-primary-300">Featured Projects</span>
+          <div 
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px 16px',
+              borderRadius: '24px',
+              border: '1px solid rgba(180, 21, 255, 0.2)',
+              background: 'rgba(180, 21, 255, 0.05)',
+              marginBottom: '24px'
+            }}
+          >
+            <Code2 style={{ width: '16px', height: '16px', color: '#B415FF' }} />
+            <span style={{ fontSize: '14px', fontWeight: '500', color: '#B415FF' }}>Featured Projects</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6">
-            My <span className="bg-gradient-to-r from-primary-400 to-orange-400 bg-clip-text text-transparent">Portfolio</span>
+          <h2 
+            style={{
+              fontSize: '3.5rem',
+              fontWeight: 'bold',
+              fontFamily: 'Poppins, sans-serif',
+              marginBottom: '24px',
+              color: 'white'
+            }}
+          >
+            My <span style={{
+              background: 'linear-gradient(to right, #B415FF, #DF8909)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>Portfolio</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p 
+            style={{
+              fontSize: '1.125rem',
+              color: 'rgba(255, 255, 255, 0.7)',
+              maxWidth: '600px',
+              margin: '0 auto',
+              lineHeight: 1.6
+            }}
+          >
             Explore a curated selection of my full-stack development work — featuring modern design,
             clean code, and seamless user experiences.
           </p>
@@ -118,7 +184,14 @@ const MyWork = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+            gap: '32px',
+            '@media (max-width: 768px)': {
+              gridTemplateColumns: '1fr',
+            }
+          }}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -127,22 +200,62 @@ const MyWork = () => {
             <motion.div
               key={project.w_no}
               variants={itemVariants}
-              className="group relative"
+              style={{ position: 'relative' }}
             >
-              <div className="relative bg-dark-800/50 backdrop-blur-sm rounded-3xl border border-white/5 overflow-hidden hover:border-primary-500/30 transition-all duration-500 hover:shadow-glow">
+              <div 
+                style={{
+                  background: 'rgba(30, 30, 30, 0.7)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 25px 60px rgba(180, 21, 255, 0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }}
+              >
                 {/* Project Image */}
-                <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
+                <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
                   <img
                     src={project.w_img}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Featured Badge */}
                   {project.featured && (
-                    <div className="absolute top-4 left-4">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-500/20 text-primary-300 border border-primary-500/30">
+                    <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
+                      <span 
+                        style={{
+                          padding: '4px 12px',
+                          borderRadius: '16px',
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          background: 'rgba(180, 21, 255, 0.2)',
+                          color: '#B415FF',
+                          border: '1px solid rgba(180, 21, 255, 0.3)'
+                        }}
+                      >
                         Featured
                       </span>
                     </div>
@@ -150,52 +263,108 @@ const MyWork = () => {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6 md:p-8">
+                <div style={{ padding: '24px' }}>
                   {/* Category */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                  <div style={{ marginBottom: '16px' }}>
+                    <span 
+                      style={{
+                        padding: '4px 12px',
+                        borderRadius: '16px',
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        background: 'rgba(223, 137, 9, 0.1)',
+                        color: '#DF8909',
+                        border: '1px solid rgba(223, 137, 9, 0.2)'
+                      }}
+                    >
                       {project.category}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-primary-300 transition-colors duration-300">
+                  <h3 
+                    style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 'bold',
+                      color: 'white',
+                      marginBottom: '16px',
+                      lineHeight: 1.3
+                    }}
+                  >
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                  <p 
+                    style={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      lineHeight: 1.6,
+                      marginBottom: '24px',
+                      fontSize: '14px'
+                    }}
+                  >
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-3 mb-8">
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
                     {project.technologies.map((tech, techIndex) => {
                       const IconComponent = getTechIcon(tech);
                       return (
                         <div
                           key={techIndex}
-                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-700/50 border border-white/5 hover:border-primary-500/30 transition-colors duration-300"
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '6px 12px',
+                            borderRadius: '8px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            fontSize: '12px'
+                          }}
                           title={tech}
                         >
-                          <IconComponent className="w-4 h-4 text-primary-400" />
-                          <span className="text-xs font-medium text-gray-300">{tech}</span>
+                          <IconComponent style={{ width: '14px', height: '14px', color: '#B415FF' }} />
+                          <span style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '12px' }}>{tech}</span>
                         </div>
                       );
                     })}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-4">
+                  <div style={{ display: 'flex', gap: '12px' }}>
                     {project.github && project.github !== '#' && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-white hover:border-primary-500/50 hover:bg-primary-500/5 transition-all duration-300 group/btn"
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          padding: '12px 24px',
+                          borderRadius: '12px',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          color: 'white',
+                          textDecoration: 'none',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.borderColor = 'rgba(180, 21, 255, 0.5)';
+                          e.target.style.background = 'rgba(180, 21, 255, 0.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                          e.target.style.background = 'transparent';
+                        }}
                       >
-                        <Github className="w-4 h-4 group-hover/btn:text-primary-400 transition-colors" />
-                        <span className="font-medium">Code</span>
+                        <Github style={{ width: '16px', height: '16px' }} />
+                        <span>Code</span>
                       </a>
                     )}
                     
@@ -204,10 +373,32 @@ const MyWork = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-orange-500 text-white hover:from-primary-400 hover:to-orange-400 transition-all duration-300 transform hover:scale-105 group/btn"
+                        style={{
+                          flex: 1,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px',
+                          padding: '12px 24px',
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #B415FF, #DF8909)',
+                          color: 'white',
+                          textDecoration: 'none',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.background = 'linear-gradient(135deg, #9333ea, #d97706)';
+                          e.target.style.transform = 'scale(1.02)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.background = 'linear-gradient(135deg, #B415FF, #DF8909)';
+                          e.target.style.transform = 'scale(1)';
+                        }}
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="font-medium">Live Demo</span>
+                        <ExternalLink style={{ width: '16px', height: '16px' }} />
+                        <span>Live Demo</span>
                       </a>
                     )}
                   </div>
@@ -219,7 +410,7 @@ const MyWork = () => {
 
         {/* View All Projects */}
         <motion.div 
-          className="text-center mt-16"
+          style={{ textAlign: 'center', marginTop: '64px' }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -228,12 +419,32 @@ const MyWork = () => {
             href="https://github.com/SauravKumar04"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-white/10 text-white hover:border-primary-500/50 hover:bg-primary-500/5 transition-all duration-300 group"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '16px 32px',
+              borderRadius: '16px',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              textDecoration: 'none',
+              fontSize: '16px',
+              fontWeight: '600',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.borderColor = 'rgba(180, 21, 255, 0.5)';
+              e.target.style.background = 'rgba(180, 21, 255, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+              e.target.style.background = 'transparent';
+            }}
           >
-            <span className="font-semibold">View All Projects</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <span>View All Projects</span>
+            <ArrowRight style={{ width: '20px', height: '20px' }} />
           </a>
-          <p className="text-sm text-gray-500 mt-4">
+          <p style={{ color: 'rgba(255, 255, 255, 0.5)', marginTop: '16px', fontSize: '14px' }}>
             Discover more projects on my GitHub profile
           </p>
         </motion.div>
