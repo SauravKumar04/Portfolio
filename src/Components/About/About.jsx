@@ -110,35 +110,33 @@ const About = () => {
         >
           {/* Section Heading */}
           <motion.div variants={itemVariants}>
-            <Box sx={{ textAlign: "center", mb: 5 }}>
+            <Box sx={{ textAlign: "center", mb: 6 }}>
               <Typography
                 variant="h2"
                 sx={{
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
-                  fontWeight: 700,
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 600,
                   mb: 2,
-                  position: "relative",
-                  display: "inline-block",
+                  fontFamily: 'Inter, sans-serif',
+                  color: 'white'
                 }}
               >
                 About{" "}
-                <Box component="span" className="gradient-text">
+                <Box component="span" sx={{ color: '#B415FF' }}>
                   Me
                 </Box>
-                <Box
-                  component="img"
-                  src={theme_pattern}
-                  alt=""
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    right: -40,
-                    width: 80,
-                    height: 80,
-                    opacity: 0.3,
-                    animation: "float 3s ease-in-out infinite",
-                  }}
-                />
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  maxWidth: '500px',
+                  mx: 'auto',
+                  lineHeight: 1.6,
+                  fontSize: '1rem'
+                }}
+              >
+                Get to know more about my background and expertise
               </Typography>
             </Box>
           </motion.div>

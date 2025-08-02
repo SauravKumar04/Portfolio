@@ -208,15 +208,17 @@ const Contact = () => {
               <Typography
                 variant="h2"
                 sx={{
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
-                  fontWeight: 700,
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                  fontWeight: 600,
+                  fontFamily: 'Inter, sans-serif',
+                  color: 'white'
                   mb: 2,
                   position: "relative",
                   display: "inline-block",
                 }}
               >
                 Get in{" "}
-                <Box component="span" className="gradient-text">
+                <Box component="span" sx={{ color: '#B415FF' }}>
                   Touch
                 </Box>
                 <Box

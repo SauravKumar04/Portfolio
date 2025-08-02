@@ -302,77 +302,84 @@ const MyWork = () => {
                     })}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
-                    {project.github && project.github !== '#' && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '8px',
-                          padding: '12px 20px',
-                          borderRadius: '12px',
-                          border: '1px solid rgba(255, 255, 255, 0.15)',
-                          color: 'white',
-                          textDecoration: 'none',
-                          fontSize: '0.85rem',
-                          fontWeight: '500',
-                          transition: 'all 0.3s ease',
-                          background: 'rgba(255, 255, 255, 0.02)'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.4)';
-                          e.currentTarget.style.background = 'rgba(180, 21, 255, 0.1)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
-                        }}
-                      >
-                        <Github style={{ width: '16px', height: '16px' }} />
-                        <span>Code</span>
-                      </a>
-                    )}
-                    
-                    {project.live && project.live !== '#' && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          flex: 1,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '8px',
-                          padding: '12px 20px',
-                          borderRadius: '12px',
-                          background: '#B415FF',
-                          color: 'white',
-                          textDecoration: 'none',
-                          fontSize: '0.85rem',
-                          fontWeight: '500',
-                          transition: 'all 0.3s ease'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = '#9333ea';
-                          e.currentTarget.style.transform = 'translateY(-1px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = '#B415FF';
-                          e.currentTarget.style.transform = 'translateY(0)';
-                        }}
-                      >
-                        <ExternalLink style={{ width: '16px', height: '16px' }} />
-                        <span>Live Demo</span>
-                      </a>
-                    )}
-                  </div>
+                                     {/* Action Buttons */}
+                   <div style={{ display: 'flex', gap: '16px', marginTop: 'auto' }}>
+                     {project.github && project.github !== '#' && (
+                       <a
+                         href={project.github}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           flex: 1,
+                           display: 'flex',
+                           alignItems: 'center',
+                           justifyContent: 'center',
+                           gap: '10px',
+                           padding: '14px 24px',
+                           borderRadius: '14px',
+                           border: '1px solid rgba(180, 21, 255, 0.2)',
+                           color: '#B415FF',
+                           textDecoration: 'none',
+                           fontSize: '0.9rem',
+                           fontWeight: '600',
+                           transition: 'all 0.3s ease',
+                           background: 'rgba(180, 21, 255, 0.05)',
+                           minHeight: '48px'
+                         }}
+                         onMouseEnter={(e) => {
+                           e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.4)';
+                           e.currentTarget.style.background = 'rgba(180, 21, 255, 0.1)';
+                           e.currentTarget.style.transform = 'translateY(-2px)';
+                         }}
+                         onMouseLeave={(e) => {
+                           e.currentTarget.style.borderColor = 'rgba(180, 21, 255, 0.2)';
+                           e.currentTarget.style.background = 'rgba(180, 21, 255, 0.05)';
+                           e.currentTarget.style.transform = 'translateY(0)';
+                         }}
+                       >
+                         <Github style={{ width: '18px', height: '18px', flexShrink: 0 }} />
+                         <span>Code</span>
+                       </a>
+                     )}
+                     
+                     {project.live && project.live !== '#' && (
+                       <a
+                         href={project.live}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         style={{
+                           flex: 1,
+                           display: 'flex',
+                           alignItems: 'center',
+                           justifyContent: 'center',
+                           gap: '10px',
+                           padding: '14px 24px',
+                           borderRadius: '14px',
+                           background: '#B415FF',
+                           color: 'white',
+                           textDecoration: 'none',
+                           fontSize: '0.9rem',
+                           fontWeight: '600',
+                           transition: 'all 0.3s ease',
+                           minHeight: '48px',
+                           boxShadow: '0 4px 16px rgba(180, 21, 255, 0.3)'
+                         }}
+                         onMouseEnter={(e) => {
+                           e.currentTarget.style.background = '#9333ea';
+                           e.currentTarget.style.transform = 'translateY(-2px)';
+                           e.currentTarget.style.boxShadow = '0 8px 24px rgba(180, 21, 255, 0.4)';
+                         }}
+                         onMouseLeave={(e) => {
+                           e.currentTarget.style.background = '#B415FF';
+                           e.currentTarget.style.transform = 'translateY(0)';
+                           e.currentTarget.style.boxShadow = '0 4px 16px rgba(180, 21, 255, 0.3)';
+                         }}
+                       >
+                         <ExternalLink style={{ width: '18px', height: '18px', flexShrink: 0 }} />
+                         <span>Live Demo</span>
+                       </a>
+                     )}
+                   </div>
                 </div>
               </div>
             </motion.div>
