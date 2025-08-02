@@ -1,294 +1,244 @@
 import React, { useRef } from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button,
-  Chip,
-  Stack,
-} from '@mui/material';
-import {
-  GitHub as GitHubIcon,
-  Launch as LaunchIcon,
-  Code as CodeIcon,
-  ArrowForward as ArrowIcon,
-} from '@mui/icons-material';
 import { motion, useInView } from 'framer-motion';
-import './MyWork.css';
+import { 
+  Github, 
+  ExternalLink, 
+  Code2,
+  ArrowRight
+} from 'lucide-react';
+import {
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiTypescript,
+  SiPostgresql,
+  SiStripe,
+  SiRazorpay
+} from 'react-icons/si';
 
-import theme_pattern from '../../assets/theme_pattern.svg';
 import mywork_data from '../../assets/mywork_data';
 
 const MyWork = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const enhancedProjects = mywork_data.map((project, index) => ({
-    ...project,
-    technologies: ['JavaScript', 'Tailwind CSS', 'React', 'Node.js', 'Express.js', 'MongoDB'],
-    category: 'MERN Stack',
-    featured: index < 3,
-  }));
+  // Tech stack icon mapping
+  const getTechIcon = (tech) => {
+    const iconMap = {
+      'JavaScript': SiJavascript,
+      'React': SiReact,
+      'Node.js': SiNodedotjs,
+      'Express.js': SiExpress,
+      'Express': SiExpress,
+      'MongoDB': SiMongodb,
+      'Tailwind CSS': SiTailwindcss,
+      'TailwindCSS': SiTailwindcss,
+      'Next.js': SiNextdotjs,
+      'TypeScript': SiTypescript,
+      'PostgreSQL': SiPostgresql,
+      'Stripe': SiStripe,
+      'Razorpay': SiRazorpay,
+    };
+    return iconMap[tech] || Code2;
+  };
+
+  // Enhanced project data with proper tech stacks
+  const enhancedProjects = mywork_data.map((project, index) => {
+    const techStacks = {
+      0: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'Razorpay'],
+      1: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Razorpay'],
+      2: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'TailwindCSS'],
+      3: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'TypeScript']
+    };
+    
+    return {
+      ...project,
+      technologies: techStacks[index] || ['JavaScript', 'React', 'Node.js'],
+      category: 'Full Stack',
+      featured: index < 2,
+    };
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
-    <Box id="work" ref={ref} sx={{ py: 10, position: 'relative', overflow: 'hidden' }}>
-      {/* Gradient Background Effects */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          left: '5%',
-          width: 250,
-          height: 250,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(223,137,9,0.15), transparent)',
-          filter: 'blur(80px)',
-          zIndex: 0,
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '5%',
-          width: 200,
-          height: 200,
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(180,21,255,0.12), transparent)',
-          filter: 'blur(60px)',
-          zIndex: 0,
-        }}
-      />
+    <section id="work" ref={ref} className="relative py-20 lg:py-32 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950"></div>
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '3s'}}></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-500/20 bg-primary-500/5 mb-6">
+            <Code2 className="w-4 h-4 text-primary-400" />
+            <span className="text-sm font-medium text-primary-300">Featured Projects</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6">
+            My <span className="bg-gradient-to-r from-primary-400 to-orange-400 bg-clip-text text-transparent">Portfolio</span>
+          </h2>
+          
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Explore a curated selection of my full-stack development work — featuring modern design,
+            clean code, and seamless user experiences.
+          </p>
+        </motion.div>
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        {/* Section Title */}
-        <Box textAlign="center" mb={6}>
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2rem', md: '3rem' },
-              fontWeight: 700,
-              color: 'white',
-              position: 'relative',
-              display: 'inline-block',
-              mb: 2,
-            }}
-          >
-            My <Box component="span" className="gradient-text">Projects</Box>
-            <Box
-              component="img"
-              src={theme_pattern}
-              alt=""
-              sx={{
-                position: 'absolute',
-                top: 0,
-                right: -50,
-                width: 60,
-                opacity: 0.2,
-              }}
-            />
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: 'rgba(255,255,255,0.7)',
-              maxWidth: '600px',
-              mx: 'auto',
-              fontSize: '1rem',
-              lineHeight: 1.8,
-            }}
-          >
-            Explore a curated selection of my web development work — clean code, responsive design, and seamless UX.
-          </Typography>
-        </Box>
+        {/* Projects Grid */}
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {enhancedProjects.map((project, index) => (
+            <motion.div
+              key={project.w_no}
+              variants={itemVariants}
+              className="group relative"
+            >
+              <div className="relative bg-dark-800/50 backdrop-blur-sm rounded-3xl border border-white/5 overflow-hidden hover:border-primary-500/30 transition-all duration-500 hover:shadow-glow">
+                {/* Project Image */}
+                <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
+                  <img
+                    src={project.w_img}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <div className="absolute top-4 left-4">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-500/20 text-primary-300 border border-primary-500/30">
+                        Featured
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-        {/* Featured Badge */}
-        <Box textAlign="center" mb={4}>
-          <Chip
-            icon={<CodeIcon />}
-            label="Featured Projects"
-            sx={{
-              px: 2,
-              py: 1,
-              color: 'white',
-              background: 'rgba(180, 21, 255, 0.15)',
-              border: '1px solid rgba(180, 21, 255, 0.4)',
-              fontWeight: 500,
-            }}
-          />
-        </Box>
+                {/* Project Content */}
+                <div className="p-6 md:p-8">
+                  {/* Category */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                      {project.category}
+                    </span>
+                  </div>
 
-        {/* Project Grid */}
-        <Grid container spacing={4}>
-          {enhancedProjects.map((project, i) => (
-            <Grid item xs={12} md={6} lg={6} key={i}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.1, type: 'spring', stiffness: 80 }}
-              >
-                <Card
-                  sx={{
-                    height: '100%',
-                    background: 'rgba(30, 30, 30, 0.95)',
-                    borderRadius: 4,
-                    overflow: 'hidden',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                    transition: '0.3s',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 25px 60px rgba(180,21,255,0.15)',
-                    },
-                  }}
-                >
-                  {/* Image */}
-                  <Box sx={{ height: 280, overflow: 'hidden' }}>
-                    <CardMedia
-                      component="img"
-                      image={project.w_img}
-                      alt={project.title}
-                      sx={{
-                        height: '100%',
-                        width: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.5s',
-                        '&:hover': { transform: 'scale(1.08)' },
-                      }}
-                    />
-                  </Box>
+                  {/* Title */}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-primary-300 transition-colors duration-300">
+                    {project.title}
+                  </h3>
 
-                  {/* Content */}
-                  <CardContent sx={{ p: 3 }}>
-                    <Stack spacing={2}>
-                      <Chip
-                        label={project.category}
-                        size="small"
-                        sx={{
-                          background: 'rgba(180, 21, 255, 0.15)',
-                          color: '#B415FF',
-                          fontWeight: 600,
-                          width: 'fit-content',
-                        }}
-                      />
-                      <Typography variant="h5" sx={{ color: 'white', fontWeight: 700 }}>
-                        {project.title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: 'rgba(255,255,255,0.8)',
-                          lineHeight: 1.6,
-                          height: '4.5em',
-                          overflow: 'hidden',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: 'vertical',
-                        }}
+                  {/* Description */}
+                  <p className="text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {project.technologies.map((tech, techIndex) => {
+                      const IconComponent = getTechIcon(tech);
+                      return (
+                        <div
+                          key={techIndex}
+                          className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-700/50 border border-white/5 hover:border-primary-500/30 transition-colors duration-300"
+                          title={tech}
+                        >
+                          <IconComponent className="w-4 h-4 text-primary-400" />
+                          <span className="text-xs font-medium text-gray-300">{tech}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-4">
+                    {project.github && project.github !== '#' && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-white hover:border-primary-500/50 hover:bg-primary-500/5 transition-all duration-300 group/btn"
                       >
-                        {project.description}
-                      </Typography>
-                      <Stack direction="row" spacing={1} flexWrap="wrap">
-                        {project.technologies.map((tech, index) => (
-                          <Chip
-                            key={index}
-                            label={tech}
-                            size="small"
-                            variant="outlined"
-                            sx={{
-                              borderColor: 'rgba(255,255,255,0.2)',
-                              color: 'white',
-                              fontSize: '0.75rem',
-                            }}
-                          />
-                        ))}
-                      </Stack>
-                    </Stack>
-                  </CardContent>
-
-                  {/* Actions */}
-                  <CardActions sx={{ px: 3, pb: 3 }}>
-                    <Stack direction="row" spacing={2} sx={{ width: '100%' }}>
-                      {project.github && (
-                        <Button
-                          fullWidth
-                          variant="outlined"
-                          startIcon={<GitHubIcon />}
-                          href={project.github}
-                          target="_blank"
-                          sx={{
-                            color: 'white',
-                            borderColor: 'rgba(255,255,255,0.3)',
-                            '&:hover': {
-                              borderColor: '#B415FF',
-                              backgroundColor: 'rgba(180,21,255,0.1)',
-                            },
-                          }}
-                        >
-                          Code
-                        </Button>
-                      )}
-                      {project.live && (
-                        <Button
-                          fullWidth
-                          variant="contained"
-                          startIcon={<LaunchIcon />}
-                          href={project.live}
-                          target="_blank"
-                          sx={{
-                            background: 'linear-gradient(135deg, #DF8909, #B415FF)',
-                            '&:hover': {
-                              background: 'linear-gradient(135deg, #FFA726, #BA68C8)',
-                            },
-                          }}
-                        >
-                          Live Demo
-                        </Button>
-                      )}
-                    </Stack>
-                  </CardActions>
-                </Card>
-              </motion.div>
-            </Grid>
+                        <Github className="w-4 h-4 group-hover/btn:text-primary-400 transition-colors" />
+                        <span className="font-medium">Code</span>
+                      </a>
+                    )}
+                    
+                    {project.live && project.live !== '#' && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-orange-500 text-white hover:from-primary-400 hover:to-orange-400 transition-all duration-300 transform hover:scale-105 group/btn"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span className="font-medium">Live Demo</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </Grid>
+        </motion.div>
 
-        {/* View All Button */}
-        <Box textAlign="center" mt={6}>
-          <Button
-            variant="outlined"
-            endIcon={<ArrowIcon />}
-            sx={{
-              px: 4,
-              py: 1.5,
-              borderRadius: '30px',
-              color: 'white',
-              fontWeight: 600,
-              borderWidth: 2,
-              borderColor: 'rgba(255,255,255,0.3)',
-              textTransform: 'none',
-              '&:hover': {
-                borderColor: '#B415FF',
-                background: 'rgba(180,21,255,0.1)',
-              },
-            }}
+        {/* View All Projects */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <a
+            href="https://github.com/SauravKumar04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-white/10 text-white hover:border-primary-500/50 hover:bg-primary-500/5 transition-all duration-300 group"
           >
-            View All Projects
-          </Button>
-          <Typography
-            variant="body2"
-            sx={{ color: 'rgba(255,255,255,0.6)', mt: 2 }}
-          >
-            Find more on my GitHub profile.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+            <span className="font-semibold">View All Projects</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+          <p className="text-sm text-gray-500 mt-4">
+            Discover more projects on my GitHub profile
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
