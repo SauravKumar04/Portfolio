@@ -1,511 +1,295 @@
-import React from 'react'
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Grid, 
-  Card, 
+import React, { useRef } from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
   CardMedia,
   CardContent,
   CardActions,
   Button,
   Chip,
   Stack,
-  IconButton,
-  Tooltip
-} from '@mui/material'
-import { 
+} from '@mui/material';
+import {
   GitHub as GitHubIcon,
   Launch as LaunchIcon,
-  ArrowForward as ArrowIcon,
   Code as CodeIcon,
-  Visibility as ViewIcon
-} from '@mui/icons-material'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import './MyWork.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
-import mywork_data from '../../assets/mywork_data'
-import arrow_icon from '../../assets/arrow_icon.svg'
+  ArrowForward as ArrowIcon,
+} from '@mui/icons-material';
+import { motion, useInView } from 'framer-motion';
+import './MyWork.css';
+
+import theme_pattern from '../../assets/theme_pattern.svg';
+import mywork_data from '../../assets/mywork_data';
 
 const MyWork = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  // Enhanced project data with technologies
-  const enhancedProjects = mywork_data.map((project, index) => {
-    const techStacks = [
-      ['React', 'Node.js', 'MongoDB'],
-      ['JavaScript', 'HTML5', 'CSS3'],
-      ['React', 'Express', 'API'],
-      ['MERN Stack', 'Redux', 'JWT'],
-      ['React', 'Firebase', 'Material-UI'],
-      ['Node.js', 'MongoDB', 'Socket.io']
-    ]
-    
-    const categories = [
-      'Full Stack',
-      'Frontend',
-      'Web App',
-      'E-commerce',
-      'Dashboard',
-      'Real-time'
-    ]
-
-    return {
-      ...project,
-      technologies: techStacks[index] || ['React', 'JavaScript'],
-      category: categories[index] || 'Web Development',
-      featured: index < 3 // Mark first 3 as featured
-    }
-  })
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.15
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: { y: 50, opacity: 0, scale: 0.95 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  }
+  const enhancedProjects = mywork_data.map((project, index) => ({
+    ...project,
+    technologies: ['JavaScript', 'Tailwind CSS', 'React', 'Node.js', 'Express.js', 'MongoDB'],
+    category: 'MERN Stack',
+    featured: index < 3,
+  }));
 
   return (
-    <Box
-      id='work'
-      ref={ref}
-      sx={{
-        py: { xs: 4, md: 6 },
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
-      {/* Background decorative elements */}
+    <Box id="work" ref={ref} sx={{ py: 10, position: 'relative', overflow: 'hidden' }}>
+      {/* Gradient Background Effects */}
       <Box
         sx={{
           position: 'absolute',
-          top: '15%',
-          left: '8%',
-          width: '280px',
-          height: '280px',
-          background: 'radial-gradient(circle, rgba(223, 137, 9, 0.1) 0%, transparent 70%)',
+          top: '10%',
+          left: '5%',
+          width: 250,
+          height: 250,
           borderRadius: '50%',
-          filter: 'blur(60px)',
-          zIndex: 0
+          background: 'radial-gradient(circle, rgba(223,137,9,0.15), transparent)',
+          filter: 'blur(80px)',
+          zIndex: 0,
         }}
       />
       <Box
         sx={{
           position: 'absolute',
-          bottom: '20%',
-          right: '10%',
-          width: '200px',
-          height: '200px',
-          background: 'radial-gradient(circle, rgba(180, 21, 255, 0.1) 0%, transparent 70%)',
+          bottom: '10%',
+          right: '5%',
+          width: 200,
+          height: 200,
           borderRadius: '50%',
-          filter: 'blur(50px)',
-          zIndex: 0
+          background: 'radial-gradient(circle, rgba(180,21,255,0.12), transparent)',
+          filter: 'blur(60px)',
+          zIndex: 0,
         }}
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {/* Section Title */}
-          <motion.div variants={itemVariants}>
-            <Box sx={{ textAlign: 'center', mb: 5 }}>
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  fontWeight: 700,
-                  mb: 2,
-                  position: 'relative',
-                  display: 'inline-block'
-                }}
+        {/* Section Title */}
+        <Box textAlign="center" mb={6}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: '2rem', md: '3rem' },
+              fontWeight: 700,
+              color: 'white',
+              position: 'relative',
+              display: 'inline-block',
+              mb: 2,
+            }}
+          >
+            My <Box component="span" className="gradient-text">Projects</Box>
+            <Box
+              component="img"
+              src={theme_pattern}
+              alt=""
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: -50,
+                width: 60,
+                opacity: 0.2,
+              }}
+            />
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'rgba(255,255,255,0.7)',
+              maxWidth: '600px',
+              mx: 'auto',
+              fontSize: '1rem',
+              lineHeight: 1.8,
+            }}
+          >
+            Explore a curated selection of my web development work — clean code, responsive design, and seamless UX.
+          </Typography>
+        </Box>
+
+        {/* Featured Badge */}
+        <Box textAlign="center" mb={4}>
+          <Chip
+            icon={<CodeIcon />}
+            label="Featured Projects"
+            sx={{
+              px: 2,
+              py: 1,
+              color: 'white',
+              background: 'rgba(180, 21, 255, 0.15)',
+              border: '1px solid rgba(180, 21, 255, 0.4)',
+              fontWeight: 500,
+            }}
+          />
+        </Box>
+
+        {/* Project Grid */}
+        <Grid container spacing={4}>
+          {enhancedProjects.map((project, i) => (
+            <Grid item xs={12} md={6} lg={6} key={i}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: i * 0.1, type: 'spring', stiffness: 80 }}
               >
-                My{' '}
-                <Box component="span" className="gradient-text">
-                  Projects
-                </Box>
-                <Box
-                  component="img"
-                  src={theme_pattern}
-                  alt=""
+                <Card
                   sx={{
-                    position: 'absolute',
-                    top: 0,
-                    right: -40,
-                    width: 80,
-                    height: 80,
-                    opacity: 0.3,
-                    animation: 'float 3s ease-in-out infinite'
+                    height: '100%',
+                    background: 'rgba(30, 30, 30, 0.95)',
+                    borderRadius: 4,
+                    overflow: 'hidden',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                    transition: '0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: '0 25px 60px rgba(180,21,255,0.15)',
+                    },
                   }}
-                />
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  maxWidth: '600px',
-                  mx: 'auto',
-                  lineHeight: 1.6
-                }}
-              >
-                A showcase of my development journey and the projects I'm proud to share
-              </Typography>
-            </Box>
-          </motion.div>
-
-          {/* Featured Projects Badge */}
-          <motion.div variants={itemVariants}>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
-              <Chip
-                icon={<CodeIcon />}
-                label="Featured Projects"
-                sx={{
-                  background: 'linear-gradient(135deg, rgba(223, 137, 9, 0.2), rgba(180, 21, 255, 0.2))',
-                  border: '1px solid rgba(180, 21, 255, 0.3)',
-                  color: 'white',
-                  fontSize: '1rem',
-                  px: 2,
-                  py: 1
-                }}
-              />
-            </Box>
-          </motion.div>
-
-          {/* Projects Grid */}
-          <Grid container spacing={4}>
-            {enhancedProjects.map((project, index) => (
-              <Grid item xs={12} sm={6} lg={4} key={index}>
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
                 >
-                  <Card
-                    className="glass-effect"
-                    sx={{
-                      height: '100%',
-                      background: 'rgba(30, 30, 30, 0.95)',
-                      backdropFilter: 'blur(20px)',
-                      border: project.featured 
-                        ? '1px solid rgba(180, 21, 255, 0.3)' 
-                        : '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '25px',
-                      overflow: 'hidden',
-                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                      position: 'relative',
-                      '&:hover': {
-                        border: '1px solid rgba(180, 21, 255, 0.5)',
-                        boxShadow: '0 25px 80px rgba(180, 21, 255, 0.25)',
-                        transform: 'translateY(-12px)',
-                        '& .project-image': {
-                          transform: 'scale(1.1)'
-                        },
-                        '& .project-overlay': {
-                          opacity: 1
-                        }
-                      }
-                    }}
-                  >
-                    {/* Featured Badge */}
-                    {project.featured && (
-                      <Box
-                        sx={{
-                          position: 'absolute',
-                          top: 15,
-                          left: 15,
-                          zIndex: 2,
-                          background: 'linear-gradient(135deg, #DF8909, #B415FF)',
-                          color: 'white',
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: '20px',
-                          fontSize: '0.75rem',
-                          fontWeight: 600
-                        }}
-                      >
-                        Featured
-                      </Box>
-                    )}
+                  {/* Image */}
+                  <Box sx={{ height: 280, overflow: 'hidden' }}>
+                    <CardMedia
+                      component="img"
+                      image={project.w_img}
+                      alt={project.title}
+                      sx={{
+                        height: '100%',
+                        width: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s',
+                        '&:hover': { transform: 'scale(1.08)' },
+                      }}
+                    />
+                  </Box>
 
-                    {/* Project Image */}
-                    <Box sx={{ position: 'relative', overflow: 'hidden', height: 250 }}>
-                      <CardMedia
-                        component="img"
-                        image={project.w_img}
-                        alt={project.title}
-                        className="project-image"
+                  {/* Content */}
+                  <CardContent sx={{ p: 3 }}>
+                    <Stack spacing={2}>
+                      <Chip
+                        label={project.category}
+                        size="small"
                         sx={{
-                          height: '100%',
-                          objectFit: 'cover',
-                          transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                          background: 'rgba(180, 21, 255, 0.15)',
+                          color: '#B415FF',
+                          fontWeight: 600,
+                          width: 'fit-content',
                         }}
                       />
-                      
-                      {/* Overlay on hover */}
-                      <Box
-                        className="project-overlay"
+                      <Typography variant="h5" sx={{ color: 'white', fontWeight: 700 }}>
+                        {project.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
                         sx={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          background: 'linear-gradient(135deg, rgba(223, 137, 9, 0.8), rgba(180, 21, 255, 0.8))',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          opacity: 0,
-                          transition: 'all 0.3s ease',
-                          gap: 2
+                          color: 'rgba(255,255,255,0.8)',
+                          lineHeight: 1.6,
+                          height: '4.5em',
+                          overflow: 'hidden',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
                         }}
                       >
-                        {project.github && (
-                          <Tooltip title="View Source Code">
-                            <IconButton
-                              component="a"
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              sx={{
-                                background: 'rgba(255, 255, 255, 0.2)',
-                                color: 'white',
-                                backdropFilter: 'blur(10px)',
-                                '&:hover': {
-                                  background: 'rgba(255, 255, 255, 0.3)',
-                                  transform: 'scale(1.1)'
-                                }
-                              }}
-                            >
-                              <GitHubIcon />
-                            </IconButton>
-                          </Tooltip>
-                        )}
-                        
-                        {project.live && (
-                          <Tooltip title="View Live Demo">
-                            <IconButton
-                              component="a"
-                              href={project.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              sx={{
-                                background: 'rgba(255, 255, 255, 0.2)',
-                                color: 'white',
-                                backdropFilter: 'blur(10px)',
-                                '&:hover': {
-                                  background: 'rgba(255, 255, 255, 0.3)',
-                                  transform: 'scale(1.1)'
-                                }
-                              }}
-                            >
-                              <LaunchIcon />
-                            </IconButton>
-                          </Tooltip>
-                        )}
-                      </Box>
-                    </Box>
-
-                    <CardContent sx={{ p: 3 }}>
-                      <Stack spacing={2}>
-                        {/* Category Chip */}
-                        <Box>
+                        {project.description}
+                      </Typography>
+                      <Stack direction="row" spacing={1} flexWrap="wrap">
+                        {project.technologies.map((tech, index) => (
                           <Chip
-                            label={project.category}
+                            key={index}
+                            label={tech}
                             size="small"
+                            variant="outlined"
                             sx={{
-                              background: 'rgba(180, 21, 255, 0.2)',
-                              color: '#B415FF',
-                              border: '1px solid rgba(180, 21, 255, 0.3)',
-                              fontWeight: 500
+                              borderColor: 'rgba(255,255,255,0.2)',
+                              color: 'white',
+                              fontSize: '0.75rem',
                             }}
                           />
-                        </Box>
+                        ))}
+                      </Stack>
+                    </Stack>
+                  </CardContent>
 
-                        {/* Project Title */}
-                        <Typography
-                          variant="h5"
+                  {/* Actions */}
+                  <CardActions sx={{ px: 3, pb: 3 }}>
+                    <Stack direction="row" spacing={2} sx={{ width: '100%' }}>
+                      {project.github && (
+                        <Button
+                          fullWidth
+                          variant="outlined"
+                          startIcon={<GitHubIcon />}
+                          href={project.github}
+                          target="_blank"
                           sx={{
-                            fontWeight: 700,
                             color: 'white',
-                            lineHeight: 1.3,
-                            mb: 1
+                            borderColor: 'rgba(255,255,255,0.3)',
+                            '&:hover': {
+                              borderColor: '#B415FF',
+                              backgroundColor: 'rgba(180,21,255,0.1)',
+                            },
                           }}
                         >
-                          {project.title}
-                        </Typography>
-
-                        {/* Project Description */}
-                        <Typography
-                          variant="body2"
+                          Code
+                        </Button>
+                      )}
+                      {project.live && (
+                        <Button
+                          fullWidth
+                          variant="contained"
+                          startIcon={<LaunchIcon />}
+                          href={project.live}
+                          target="_blank"
                           sx={{
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            lineHeight: 1.6,
-                            display: '-webkit-box',
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden'
+                            background: 'linear-gradient(135deg, #DF8909, #B415FF)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #FFA726, #BA68C8)',
+                            },
                           }}
                         >
-                          {project.description}
-                        </Typography>
-
-                        {/* Technologies */}
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                          {project.technologies.map((tech, techIndex) => (
-                            <Chip
-                              key={techIndex}
-                              label={tech}
-                              size="small"
-                              variant="outlined"
-                              sx={{
-                                borderColor: 'rgba(255, 255, 255, 0.3)',
-                                color: 'rgba(255, 255, 255, 0.9)',
-                                fontSize: '0.7rem'
-                              }}
-                            />
-                          ))}
-                        </Box>
-                      </Stack>
-                    </CardContent>
-
-                    {/* Action Buttons */}
-                    <CardActions sx={{ p: 3, pt: 0 }}>
-                      <Stack direction="row" spacing={2} sx={{ width: '100%' }}>
-                        {project.github && (
-                          <Button
-                            variant="outlined"
-                            startIcon={<GitHubIcon />}
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                            sx={{
-                              borderColor: 'rgba(255, 255, 255, 0.3)',
-                              color: 'white',
-                              flex: 1,
-                              '&:hover': {
-                                borderColor: '#B415FF',
-                                backgroundColor: 'rgba(180, 21, 255, 0.1)'
-                              }
-                            }}
-                          >
-                            Code
-                          </Button>
-                        )}
-                        
-                        {project.live && (
-                          <Button
-                            variant="contained"
-                            startIcon={<LaunchIcon />}
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                            sx={{
-                              background: 'linear-gradient(135deg, #DF8909, #B415FF)',
-                              flex: 1,
-                              '&:hover': {
-                                background: 'linear-gradient(135deg, #FFB23D, #D665FF)',
-                                transform: 'translateY(-1px)'
-                              }
-                            }}
-                          >
-                            Live Demo
-                          </Button>
-                        )}
-                      </Stack>
-                    </CardActions>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-
-          {/* Show More Section */}
-          <motion.div variants={itemVariants}>
-            <Box sx={{ textAlign: 'center', mt: 5 }}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  variant="outlined"
-                  size="large"
-                  endIcon={<ArrowIcon />}
-                  sx={{
-                    borderRadius: '50px',
-                    px: 4,
-                    py: 2,
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    textTransform: 'none',
-                    borderWidth: '2px',
-                    borderColor: 'rgba(255, 255, 255, 0.3)',
-                    color: 'white',
-                    '&:hover': {
-                      borderWidth: '2px',
-                      borderColor: '#B415FF',
-                      backgroundColor: 'rgba(180, 21, 255, 0.1)',
-                      boxShadow: '0 8px 25px rgba(180, 21, 255, 0.2)',
-                      transform: 'translateY(-2px)'
-                    }
-                  }}
-                >
-                  View All Projects
-                </Button>
+                          Live Demo
+                        </Button>
+                      )}
+                    </Stack>
+                  </CardActions>
+                </Card>
               </motion.div>
-              
-              <Typography
-                variant="body2"
-                sx={{
-                  color: 'rgba(255, 255, 255, 0.6)',
-                  mt: 2
-                }}
-              >
-                More projects available on my GitHub profile
-              </Typography>
-            </Box>
-          </motion.div>
-        </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+
+        {/* View All Button */}
+        <Box textAlign="center" mt={6}>
+          <Button
+            variant="outlined"
+            endIcon={<ArrowIcon />}
+            sx={{
+              px: 4,
+              py: 1.5,
+              borderRadius: '30px',
+              color: 'white',
+              fontWeight: 600,
+              borderWidth: 2,
+              borderColor: 'rgba(255,255,255,0.3)',
+              textTransform: 'none',
+              '&:hover': {
+                borderColor: '#B415FF',
+                background: 'rgba(180,21,255,0.1)',
+              },
+            }}
+          >
+            View All Projects
+          </Button>
+          <Typography
+            variant="body2"
+            sx={{ color: 'rgba(255,255,255,0.6)', mt: 2 }}
+          >
+            Find more on my GitHub profile.
+          </Typography>
+        </Box>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default MyWork
+export default MyWork;
