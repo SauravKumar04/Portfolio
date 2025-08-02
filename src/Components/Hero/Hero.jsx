@@ -298,29 +298,25 @@ const Hero = () => {
                 sx={{ mt: 3 }}
               >
                 <AnchorLink className='anchor-link' offset={50} href='#contact'>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
+                  <motion.div>
                     <Button
                       variant="contained"
                       size="large"
                       startIcon={<ConnectIcon />}
                       sx={{
                         background: '#B415FF',
-                        borderRadius: '16px',
+                        borderRadius: '12px',
                         px: 4,
-                        py: 2.5,
-                        fontSize: '1rem',
+                        py: 2,
+                        fontSize: '0.95rem',
                         fontWeight: 600,
                         textTransform: 'none',
-                        minWidth: '180px',
+                        minWidth: '160px',
                         border: 'none',
-                        boxShadow: '0 4px 20px rgba(180, 21, 255, 0.3)',
+                        boxShadow: 'none',
                         '&:hover': {
-                          background: '#9333ea',
-                          boxShadow: '0 8px 30px rgba(180, 21, 255, 0.4)',
-                          transform: 'translateY(-2px)'
+                          background: '#B415FF',
+                          boxShadow: 'none'
                         }
                       }}
                     >
@@ -329,10 +325,7 @@ const Hero = () => {
                   </motion.div>
                 </AnchorLink>
 
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <motion.div>
                   <Button
                     variant="outlined"
                     size="large"
@@ -340,24 +333,22 @@ const Hero = () => {
                     href={resume}
                     download="SauravKumar_Resume.pdf"
                     sx={{
-                      borderRadius: '16px',
+                      borderRadius: '12px',
                       px: 4,
-                      py: 2.5,
-                      fontSize: '1rem',
+                      py: 2,
+                      fontSize: '0.95rem',
                       fontWeight: 600,
                       textTransform: 'none',
-                      minWidth: '180px',
+                      minWidth: '160px',
                       borderWidth: '1px',
-                      borderColor: 'rgba(180, 21, 255, 0.4)',
+                      borderColor: 'rgba(180, 21, 255, 0.5)',
                       color: '#B415FF',
-                      backgroundColor: 'rgba(180, 21, 255, 0.05)',
+                      backgroundColor: 'transparent',
                       '&:hover': {
                         borderWidth: '1px',
-                        borderColor: '#B415FF',
-                        backgroundColor: 'rgba(180, 21, 255, 0.1)',
-                        color: '#9333ea',
-                        boxShadow: '0 4px 20px rgba(180, 21, 255, 0.2)',
-                        transform: 'translateY(-2px)'
+                        borderColor: 'rgba(180, 21, 255, 0.5)',
+                        backgroundColor: 'transparent',
+                        color: '#B415FF'
                       }
                     }}
                   >

@@ -134,72 +134,49 @@ const MyWork = () => {
       <div style={{ position: 'relative', zIndex: 10, maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
         {/* Section Header */}
         <motion.div 
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          style={{ textAlign: 'center', marginBottom: '48px' }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div 
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              borderRadius: '24px',
-              border: '1px solid rgba(180, 21, 255, 0.2)',
-              background: 'rgba(180, 21, 255, 0.05)',
-              marginBottom: '24px'
-            }}
-          >
-            <Code2 style={{ width: '16px', height: '16px', color: '#B415FF' }} />
-            <span style={{ fontSize: '14px', fontWeight: '500', color: '#B415FF' }}>Featured Projects</span>
-          </div>
-          
           <h2 
             style={{
-              fontSize: '3.5rem',
-              fontWeight: 'bold',
-              fontFamily: 'Poppins, sans-serif',
-              marginBottom: '24px',
+              fontSize: '2.5rem',
+              fontWeight: 600,
+              fontFamily: 'Inter, sans-serif',
+              marginBottom: '16px',
               color: 'white'
             }}
           >
-            My <span style={{
-              background: 'linear-gradient(to right, #B415FF, #DF8909)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>Portfolio</span>
+            My <span style={{ color: '#B415FF' }}>Projects</span>
           </h2>
           
           <p 
             style={{
-              fontSize: '1.125rem',
+              fontSize: '1rem',
               color: 'rgba(255, 255, 255, 0.7)',
-              maxWidth: '600px',
+              maxWidth: '500px',
               margin: '0 auto',
               lineHeight: 1.6
             }}
           >
-            Explore a curated selection of my full-stack development work — featuring modern design,
-            clean code, and seamless user experiences.
+            Featured full-stack applications showcasing modern development practices
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-            gap: '32px',
-            '@media (max-width: 768px)': {
-              gridTemplateColumns: '1fr',
-            }
-          }}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+                 {/* Projects Grid */}
+         <motion.div 
+           style={{
+             display: 'grid',
+             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+             gap: '24px',
+             maxWidth: '900px',
+             margin: '0 auto'
+           }}
+           variants={containerVariants}
+           initial="hidden"
+           animate={isInView ? "visible" : "hidden"}
+         >
           {enhancedProjects.map((project, index) => (
             <motion.div
               key={project.w_no}
@@ -228,24 +205,35 @@ const MyWork = () => {
                 }}
               >
                                  {/* Project Image */}
-                 <div style={{ height: '280px', overflow: 'hidden', position: 'relative', padding: '16px' }}>
-                   <img
-                     src={project.w_img}
-                     alt={project.title}
-                     style={{
-                       width: '100%',
-                       height: '100%',
-                       objectFit: 'contain',
-                       transition: 'transform 0.5s ease',
-                       borderRadius: '12px'
-                     }}
-                     onMouseEnter={(e) => {
-                       e.target.style.transform = 'scale(1.03)';
-                     }}
-                     onMouseLeave={(e) => {
-                       e.target.style.transform = 'scale(1)';
-                     }}
-                   />
+                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative', padding: '20px 20px 0 20px' }}>
+                   <div style={{
+                     width: '100%',
+                     height: '100%',
+                     borderRadius: '12px',
+                     overflow: 'hidden',
+                     background: 'rgba(255, 255, 255, 0.02)',
+                     border: '1px solid rgba(255, 255, 255, 0.05)',
+                     display: 'flex',
+                     alignItems: 'center',
+                     justifyContent: 'center'
+                   }}>
+                     <img
+                       src={project.w_img}
+                       alt={project.title}
+                       style={{
+                         width: '90%',
+                         height: '90%',
+                         objectFit: 'contain',
+                         transition: 'transform 0.3s ease'
+                       }}
+                       onMouseEnter={(e) => {
+                         e.target.style.transform = 'scale(1.02)';
+                       }}
+                       onMouseLeave={(e) => {
+                         e.target.style.transform = 'scale(1)';
+                       }}
+                     />
+                   </div>
                   
                   {/* Featured Badge */}
                   {project.featured && (
