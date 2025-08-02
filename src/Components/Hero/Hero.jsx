@@ -307,18 +307,19 @@ const Hero = () => {
                       size="large"
                       startIcon={<ConnectIcon />}
                       sx={{
-                        background: 'linear-gradient(135deg, #DF8909 0%, #B415FF 100%)',
-                        borderRadius: '50px',
+                        background: '#B415FF',
+                        borderRadius: '16px',
                         px: 4,
-                        py: 2,
-                        fontSize: '1.1rem',
+                        py: 2.5,
+                        fontSize: '1rem',
                         fontWeight: 600,
                         textTransform: 'none',
-                        minWidth: '200px',
-                        boxShadow: '0 8px 25px rgba(180, 21, 255, 0.3)',
+                        minWidth: '180px',
+                        border: 'none',
+                        boxShadow: '0 4px 20px rgba(180, 21, 255, 0.3)',
                         '&:hover': {
-                          background: 'linear-gradient(135deg, #FFB23D 0%, #D665FF 100%)',
-                          boxShadow: '0 12px 35px rgba(223, 137, 9, 0.4)',
+                          background: '#9333ea',
+                          boxShadow: '0 8px 30px rgba(180, 21, 255, 0.4)',
                           transform: 'translateY(-2px)'
                         }
                       }}
@@ -339,21 +340,23 @@ const Hero = () => {
                     href={resume}
                     download="SauravKumar_Resume.pdf"
                     sx={{
-                      borderRadius: '50px',
+                      borderRadius: '16px',
                       px: 4,
-                      py: 2,
-                      fontSize: '1.1rem',
+                      py: 2.5,
+                      fontSize: '1rem',
                       fontWeight: 600,
                       textTransform: 'none',
-                      minWidth: '200px',
-                      borderWidth: '2px',
-                      borderColor: 'rgba(255, 255, 255, 0.5)',
-                      color: 'white',
+                      minWidth: '180px',
+                      borderWidth: '1px',
+                      borderColor: 'rgba(180, 21, 255, 0.4)',
+                      color: '#B415FF',
+                      backgroundColor: 'rgba(180, 21, 255, 0.05)',
                       '&:hover': {
-                        borderWidth: '2px',
+                        borderWidth: '1px',
                         borderColor: '#B415FF',
                         backgroundColor: 'rgba(180, 21, 255, 0.1)',
-                        boxShadow: '0 8px 25px rgba(180, 21, 255, 0.2)',
+                        color: '#9333ea',
+                        boxShadow: '0 4px 20px rgba(180, 21, 255, 0.2)',
                         transform: 'translateY(-2px)'
                       }
                     }}

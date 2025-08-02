@@ -49,17 +49,15 @@ const MyWork = () => {
   // Enhanced project data with proper tech stacks
   const enhancedProjects = mywork_data.map((project, index) => {
     const techStacks = {
-      0: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'Razorpay'],
-      1: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Razorpay'],
-      2: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'TailwindCSS'],
-      3: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'TypeScript']
+      0: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
+      1: ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'Razorpay']
     };
     
     return {
       ...project,
       technologies: techStacks[index] || ['JavaScript', 'React', 'Node.js'],
       category: 'Full Stack',
-      featured: index < 2,
+      featured: true,
     };
   });
 
@@ -95,6 +93,12 @@ const MyWork = () => {
         paddingTop: '80px',
         paddingBottom: '80px',
         background: '#161513',
+        backgroundImage: `
+          radial-gradient(circle at 20% 80%, rgba(180, 21, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(223, 137, 9, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%)
+        `,
+        backgroundAttachment: 'fixed',
         overflow: 'hidden',
         minHeight: '100vh'
       }}
@@ -223,24 +227,25 @@ const MyWork = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                 }}
               >
-                {/* Project Image */}
-                <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={project.w_img}
-                    alt={project.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.5s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                    }}
-                  />
+                                 {/* Project Image */}
+                 <div style={{ height: '280px', overflow: 'hidden', position: 'relative', padding: '16px' }}>
+                   <img
+                     src={project.w_img}
+                     alt={project.title}
+                     style={{
+                       width: '100%',
+                       height: '100%',
+                       objectFit: 'contain',
+                       transition: 'transform 0.5s ease',
+                       borderRadius: '12px'
+                     }}
+                     onMouseEnter={(e) => {
+                       e.target.style.transform = 'scale(1.03)';
+                     }}
+                     onMouseLeave={(e) => {
+                       e.target.style.transform = 'scale(1)';
+                     }}
+                   />
                   
                   {/* Featured Badge */}
                   {project.featured && (
