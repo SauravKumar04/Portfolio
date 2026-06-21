@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #000000;
+  --color-bg-panel: #08080a;
+  --color-bg-card: #0d0d0f;
+  --color-border-subtle: #1c1c1f;
+  --color-accent: #00ff66;
+  --color-accent-dim: rgba(0, 255, 102, 0.15);
+
+  --font-sans: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  --font-size-4xs: 0.5rem;
+  --font-size-3xs: 0.5625rem;
+  --font-size-2xs: 0.625rem;
+
+  --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  color-scheme: dark;
+  --cursor-size: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  background-color: #000000;
+  color: #a3a3a3;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff66;
+}
+
+/* Film Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.03;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Cursor Hide */
+@media (min-width: 768px) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  select,
+  input,
+  [role="button"],
+  textarea {
+    cursor: none !important;
+  }
+}
+
+/* ==========================================================================
+   Stripe-Style Layout Classes
+   ========================================================================== */
+
+/* Section Spacing - Strict vertical layout padding */
+.portfolio-section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #000000;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Section Header - Clean margin separation */
+.section-header {
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Bento Card Style - Uniform padding, transitions, and round corners */
+.bento-card {
+  padding: 2.5rem;
+  border-radius: 12px;
+  background-color: rgba(8, 8, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .bento-card {
+    padding: 1.75rem;
+    border-radius: 8px;
+  }
+}
+
+.bento-card:hover {
+  border-color: rgba(0, 255, 102, 0.25);
+  background-color: rgba(0, 255, 102, 0.015);
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 102, 0.03);
+}
+
+/* Minimal Grid Texture */
+.grid-mesh {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Headings styles */
+h1,
+h2,
+h3,
+h4 {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Underline Animation */
+.hover-reveal {
+  position: relative;
+}
+
+.hover-reveal::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #00ff66;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hover-reveal:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* RoutePilot active path dash animation */
+@keyframes dash {
+  from {
+    stroke-dashoffset: 200;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
