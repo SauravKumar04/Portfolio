@@ -4,8 +4,6 @@ import { SplashCursor } from './components/SplashCursor';
 import { NoiseOverlay } from './components/NoiseOverlay';
 import { GridTexture } from './components/GridTexture';
 import { Hero } from './components/sections/Hero';
-import { ParallaxText } from './components/sections/ParallaxText';
-import { ScrollRevealProfile } from './components/sections/ScrollRevealProfile';
 import { Skills } from './components/sections/Skills';
 import { Projects } from './components/sections/Projects';
 import { Certifications } from './components/sections/Certifications';
@@ -34,8 +32,6 @@ function App() {
 
         {/* Cinematic Section Choreography */}
         <Hero />
-        <ParallaxText />
-        <ScrollRevealProfile />
         <Skills />
         <Projects />
         <Certifications />

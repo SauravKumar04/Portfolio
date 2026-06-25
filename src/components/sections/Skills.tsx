@@ -124,17 +124,34 @@ export const Skills: React.FC = () => {
           </h2>
         </motion.div>
 
-        {/* Minimalist Open Grid Layout (Stripe-style) divided by subtle borders */}
+        {/* Dynamic Grid Layout with Bouncy Staggered Anime Reveal & Hover Effects */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-l border-white/5 w-full mt-10">
           {skillList.map((skill, skillIdx) => (
             <motion.div
               key={skillIdx}
-              className="border-r border-b border-white/5 p-8 flex flex-col items-center justify-center text-center relative group min-h-[190px] transition-all duration-500 hover:bg-white/[0.003] overflow-hidden select-none"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: skillIdx * 0.04 }}
+              className="border-r border-b border-white/5 p-8 flex flex-col items-center justify-center text-center relative group min-h-[190px] overflow-hidden select-none bg-black/20 hover:bg-[#00ff66]/[0.006] transition-colors duration-500"
+              initial={{ opacity: 0, scale: 0.3, y: 80, rotate: -8, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, scale: 1.0, y: 0, rotate: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 130, 
+                damping: 12, 
+                delay: skillIdx * 0.06 
+              }}
             >
+              {/* Glossy light-sweep sheen overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+
+              {/* Spotlight backing glow */}
+              <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-[#00ff66]/0 blur-2xl group-hover:bg-[#00ff66]/[0.04] transition-all duration-500 pointer-events-none" />
+
+              {/* Corner bracket decorations */}
+              <div className="absolute top-3 left-3 w-2 h-2 border-t border-l border-white/10 group-hover:border-[#00ff66]/40 transition-all duration-300 pointer-events-none" />
+              <div className="absolute top-3 right-3 w-2 h-2 border-t border-r border-white/10 group-hover:border-[#00ff66]/40 transition-all duration-300 pointer-events-none" />
+              <div className="absolute bottom-3 left-3 w-2 h-2 border-b border-l border-white/10 group-hover:border-[#00ff66]/40 transition-all duration-300 pointer-events-none" />
+              <div className="absolute bottom-3 right-3 w-2 h-2 border-b border-r border-white/10 group-hover:border-[#00ff66]/40 transition-all duration-300 pointer-events-none" />
+
               {/* Category tag */}
               <div className="absolute top-3.5 left-3.5 text-[8px] font-mono uppercase tracking-widest text-neutral-600 group-hover:text-[#00ff66] transition-colors duration-300">
                 {skill.category}
@@ -145,7 +162,7 @@ export const Skills: React.FC = () => {
                 {skill.icon}
               </div>
 
-              {/* Skill Label (Light Gray / White text by default) */}
+              {/* Skill Label */}
               <span className="text-3xs font-mono uppercase tracking-widest text-neutral-200 group-hover:text-white font-bold mt-5 transition-colors duration-300">
                 {skill.name}
               </span>

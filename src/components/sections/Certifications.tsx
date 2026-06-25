@@ -182,7 +182,7 @@ export const Certifications: React.FC = () => {
           issuer="FreeCodeCamp"
           date="2024"
           credentialId="fcc-backend-apis"
-          verifyLink="https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp%2Eorg%2Fcertification%2Fsauravkumar9798%2Fback-end-development-and-apis&urlhash=6CMT&mt=UuLUT4Xon1p7ofJCMq6KhUAfY7jTmX5HkSvcboP7zF0HeHM2uW-njxE1szeLBSUS0HHKuDbDwFa3VBzLntrptrkDOrr-&isSdui=true"
+          verifyLink="https://www.freecodecamp.org/certification/sauravkumar9798/back-end-development-and-apis"
           skills={["NodeJS", "ExpressJS", "MongoDB", "Mongoose", "REST APIs", "SQL"]}
         />
         <CertCard
@@ -198,7 +198,7 @@ export const Certifications: React.FC = () => {
           issuer="IBM SkillsBuild"
           date="2024"
           credentialId="ibm-genai-foundations"
-          verifyLink="https://skillsbuild.org/"
+          verifyLink="https://skills.yourlearning.ibm.com/certificate/PLAN-BA198C182B22"
           skills={["Generative AI", "LLMs", "AI Ethics", "IBM Watson", "Prompt Design"]}
         />
       </div>
